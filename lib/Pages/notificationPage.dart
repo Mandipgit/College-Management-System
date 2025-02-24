@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teachers/Dashhboard/dashboardMain.dart';
+
+import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/main.dart';
 
 void main(){
@@ -16,16 +17,23 @@ class NotificationpageState extends State<Notificationpage> {
    Color blueColor=  Color(0xFF167AFA);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: blueColor,
-        title: Text('Notification Page'),
-        centerTitle: true,
-        leading: IconButton(onPressed: (){
-          setState(() {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Dashboardpage()));
-          });
-        }, icon: Icon(Icons.arrow_back)),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: blueColor,
+          title: Text('Notification Page',
+          style: TextStyle(
+            color: Colors.white,
+          ),),
+          centerTitle: true,
+          leading: IconButton(onPressed: (){
+            setState(() {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Dashboardpage()));
+            });
+          },
+          color: Colors.white,
+          icon: Icon(Icons.arrow_back)),
+        ),
       ),
     );
   }
