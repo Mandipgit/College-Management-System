@@ -20,6 +20,7 @@ class _DashboardpageState extends State<Dashboardpage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text("Teacher",
           style: TextStyle(
@@ -67,7 +68,30 @@ class _DashboardpageState extends State<Dashboardpage> {
             ],
           ),
         ),
-      ),
-    );
+        body: Padding(
+              padding: const EdgeInsets.only(top: 20,left: 20,right:20),
+              child: Container(
+                height: 150,
+                width: double.maxFinite,
+              decoration: BoxDecoration(
+                  color: blueColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Explore Categories",
+                  style:TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                  )
+                  ),
+                ),
+                ),
+              ),
+              
+              )
+        
+      );
   }
 }
