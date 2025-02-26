@@ -19,42 +19,83 @@ class _DashboardpageState extends State<Dashboardpage> {
   bool iconChecked = false;
   bool isFABpressed=false;
   
+  
   Widget buildChatButton(){
     return !isFABpressed?
-    FloatingActionButton(
-   backgroundColor: blueColor,
-    child:Icon((Icons.chat),
-    color: Colors.white,
-    ),
-    onPressed: (){
-      setState(() {
-        isFABpressed=!isFABpressed;
-      });
-      }):SizedBox(
-        height:150,
-        child: FloatingActionButton.extended(
-          label:Column(
-        children: [
-          TextButton(onPressed: (){}, child: 
-          Text("Parents")
-          ),
-          TextButton(onPressed: (){}, child: Text("Teachers")),
-          TextButton(onPressed: (){}, child: Text("Administrator"))
-        ],
+    Padding(
+      padding: const EdgeInsets.only(bottom:50,),
+      child: FloatingActionButton(
+         backgroundColor: blueColor,
+      child:Icon((Icons.chat),
+      color: Colors.white,
+      ),
+      onPressed: (){
+        setState(() {
+          isFABpressed=!isFABpressed;
+        });
+        }),
+    ):Padding(
+      padding: const EdgeInsets.only(bottom: 50),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            SizedBox(
+              height:150,
+              child: FloatingActionButton.extended(
+                backgroundColor: blueColor,
+                foregroundColor: Colors.white,
+                label:Column(
+              children: [
+                TextButton(onPressed: (){}, child: 
+                Text("Parents",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+                )
+                ),
+                TextButton(onPressed: (){}, child: Text("Teachers",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),)),
+                TextButton(onPressed: (){}, child: Text("Administrator",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),))
+              ],
+                  ),
+                  onPressed: (){
+                    
+                  }
+                ),
             ),
-            onPressed: (){
-              
-            }
-          ),
-      );
+            const SizedBox(width:10),
+            FloatingActionButton(
+              backgroundColor: blueColor,
+              foregroundColor: Colors.white,
+                child: Icon(Icons.close),
+                onPressed:(){
+                  setState(() {
+                    isFABpressed=false;
+                  });
+                }),
+          ],
+        ),
+    );
   }
   
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+   return SafeArea(
       child: Scaffold(
         floatingActionButton: buildChatButton(),
-        floatingActionButtonLocation: isFABpressed?(FloatingActionButtonLocation.centerFloat):(FloatingActionButtonLocation.endDocked),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         backgroundColor: greyColor,
         appBar: AppBar(
           title: Text(
@@ -202,7 +243,8 @@ class _DashboardpageState extends State<Dashboardpage> {
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.645,
+              height: MediaQuery.of(context).size.height -274,
+              
               width: double.maxFinite,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
