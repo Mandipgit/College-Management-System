@@ -177,33 +177,180 @@ class _DashboardpageState extends State<Dashboardpage> {
                 color: Colors.white,
               ),
               // child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0, left: 20),
-                      child: Container(
-                        height: 45,
-                        width: 200,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          // borderRadius: BorderRadius.only(topLeft:Radius.circular(50),topRight: Radius.circular(50))
-                        ),
-                        child: Text(
-                          "Explore Categories",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0, left: 20),
+
+                          child: Container(
+                            height: 45,
+                            width: 200,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              // borderRadius: BorderRadius.only(topLeft:Radius.circular(50),topRight: Radius.circular(50))
+                            ),
+                            child: Text(
+                              "Explore Categories",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                    
-                  ],
+                      Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: DecorationImage(
+                                      image: AssetImage('Assets/assignment.png',
+
+                                      ),
+                                        ),
+                                      
+                                    ),
+                                    alignment: Alignment.bottomCenter,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(bottom: 8.0),
+                                      child: Text("Assignment",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 40,),
+                                   Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                
+                              ],
+                            ),
+                            const SizedBox(height:40),
+                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 40,),
+                                   Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                
+                              ],
+                             ),
+                             const SizedBox(height:40),
+                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                    height: 130,
+                                    width: 130,
+                                  decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 40,),
+                                   Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                
+                              ],
+                             ),
+                             const SizedBox(height:40),
+                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 40,),
+                                   Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                
+                              ],
+                             ),
+                             const SizedBox(height:40),
+                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 40,),
+                                   Container(
+                                    height: 120,
+                                    width: 120,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                ],
+                                ),
+                                const SizedBox(height: 40,),
+                          ],
+                        ),
+                      
+                    ],
+                  ),
                 ),
               ),
             ),
-          // ),
+          
         ]),
       ),
     );
