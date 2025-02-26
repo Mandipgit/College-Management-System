@@ -17,10 +17,44 @@ class _DashboardpageState extends State<Dashboardpage> {
   Color blueColor = Color(0xFF167AFA);
   Color greyColor = Color.fromARGB(255, 228, 224, 224);
   bool iconChecked = false;
+  bool isFABpressed=false;
+  
+  Widget buildChatButton(){
+    return !isFABpressed?
+    FloatingActionButton(
+   backgroundColor: blueColor,
+    child:Icon((Icons.chat),
+    color: Colors.white,
+    ),
+    onPressed: (){
+      setState(() {
+        isFABpressed=!isFABpressed;
+      });
+      }):SizedBox(
+        height:150,
+        child: FloatingActionButton.extended(
+          label:Column(
+        children: [
+          TextButton(onPressed: (){}, child: 
+          Text("Parents")
+          ),
+          TextButton(onPressed: (){}, child: Text("Teachers")),
+          TextButton(onPressed: (){}, child: Text("Administrator"))
+        ],
+            ),
+            onPressed: (){
+              
+            }
+          ),
+      );
+  }
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: buildChatButton(),
+        floatingActionButtonLocation: isFABpressed?(FloatingActionButtonLocation.centerFloat):(FloatingActionButtonLocation.endDocked),
         backgroundColor: greyColor,
         appBar: AppBar(
           title: Text(
@@ -324,6 +358,21 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       color: greyColor,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
+                                    child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(top:8.0),
+                                            child: Image.asset('Assets/meeting.png',
+                                            height: 80,
+                                            ),
+                                          ),
+                                          Text("Meeting",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                          ),)
+                                        ],
+                                      ),
                                   ),
                                   const SizedBox(width: 40,),
                                    Container(
@@ -338,61 +387,12 @@ class _DashboardpageState extends State<Dashboardpage> {
                               ],
                              ),
                              const SizedBox(height:40),
-                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                    height: 130,
-                                    width: 130,
-                                    decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 40,),
-                                   Container(
-                                    height: 130,
-                                    width: 130,
-                                    decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                  ),
-                                
-                              ],
-                             ),
-                             const SizedBox(height:40),
-                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                    height: 130,
-                                    width: 130,
-                                    decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 40,),
-                                   Container(
-                                    height: 120,
-                                    width: 120,
-                                    decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                  ),
-                                ],
-                                ),
-                                const SizedBox(height: 40,),
-                          ],
+                            ],
                         ),
-                      
-                    ],
+                      ],
                   ),
                 ),
+                
               ),
             ),
           
@@ -400,4 +400,4 @@ class _DashboardpageState extends State<Dashboardpage> {
       ),
     );
   }
-}
+  }
