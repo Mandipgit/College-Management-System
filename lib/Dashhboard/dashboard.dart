@@ -212,24 +212,24 @@ class _DashboardpageState extends State<Dashboardpage> {
                                     decoration: BoxDecoration(
                                       color: greyColor,
                                       borderRadius: BorderRadius.circular(20),
-                                      image: DecorationImage(
-                                      image: AssetImage('Assets/assignment.png',
-
                                       ),
-                                        ),
-                                      
-                                    ),
-                                    alignment: Alignment.bottomCenter,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(bottom: 8.0),
-                                      child: Text("Assignment",
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
+                                      child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(top:8.0),
+                                            child: Image.asset('Assets/assignment.png',
+                                            height: 80,
+                                            ),
+                                          ),
+                                          Text("Assignment",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                          ),)
+                                        ],
                                       ),
                                       ),
-                                    ),
-                                  ),
+                                  
                                   const SizedBox(width: 40,),
                                    Container(
                                     height: 130,
@@ -238,6 +238,21 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       color: greyColor,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
+                                    child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(top:8.0),
+                                            child: Image.asset('Assets/student.png',
+                                            height: 80,
+                                            ),
+                                          ),
+                                          Text("Student",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                          ),)
+                                        ],
+                                      ),
                                   ),
                                 
                               ],
@@ -254,6 +269,21 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       color: greyColor,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
+                                    child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(top:8.0),
+                                            child: Image.asset('Assets/publishnotice.png',
+                                            height: 80,
+                                            ),
+                                          ),
+                                          Text("Publish Notice",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                          ),)
+                                        ],
+                                      ),
                                   ),
                                   const SizedBox(width: 40,),
                                    Container(
@@ -263,6 +293,21 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       color: greyColor,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
+                                    child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(top:8.0),
+                                            child: Image.asset('Assets/library.png',
+                                            height: 80,
+                                            ),
+                                          ),
+                                          Text("Library",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                          ),)
+                                        ],
+                                      ),
                                   ),
                                 
                               ],
