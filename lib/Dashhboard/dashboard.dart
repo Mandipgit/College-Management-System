@@ -17,82 +17,95 @@ class _DashboardpageState extends State<Dashboardpage> {
   Color blueColor = Color(0xFF167AFA);
   Color greyColor = Color.fromARGB(255, 228, 224, 224);
   bool iconChecked = false;
-  bool isFABpressed=false;
+  bool isFABpressed = false;
   
-  
-  Widget buildChatButton(){
-    return !isFABpressed?
-    Padding(
-      padding: const EdgeInsets.only(bottom:50,),
-      child: FloatingActionButton(
-         backgroundColor: blueColor,
-      child:Icon((Icons.chat),
-      color: Colors.white,
-      ),
-      onPressed: (){
-        setState(() {
-          isFABpressed=!isFABpressed;
-        });
-        }),
-    ):Padding(
-      padding: const EdgeInsets.only(bottom: 50),
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            SizedBox(
-              height:150,
-              child: FloatingActionButton.extended(
-                backgroundColor: blueColor,
-                foregroundColor: Colors.white,
-                label:Column(
-              children: [
-                TextButton(onPressed: (){}, child: 
-                Text("Parents",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                ),
-                )
-                ),
-                TextButton(onPressed: (){}, child: Text("Teachers",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                ),)),
-                TextButton(onPressed: (){}, child: Text("Administrator",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                ),))
-              ],
-                  ),
-                  onPressed: (){
-                    
-                  }
-                ),
+
+  Widget buildChatButton() {
+    return !isFABpressed
+        ? Padding(
+            padding: const EdgeInsets.only(
+              bottom: 50,
             ),
-            const SizedBox(width:10),
-            FloatingActionButton(
-              backgroundColor: blueColor,
-              foregroundColor: Colors.white,
-                child: Icon(Icons.close),
-                onPressed:(){
+            child: FloatingActionButton(
+                backgroundColor: blueColor,
+                child: Icon(
+                  (Icons.chat),
+                  color: Colors.white,
+                ),
+                onPressed: () {
                   setState(() {
-                    isFABpressed=false;
+                    isFABpressed = !isFABpressed;
                   });
                 }),
-          ],
-        ),
-    );
+          )
+        : Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                SizedBox(
+                  height: 150,
+                  child: FloatingActionButton.extended(
+                      backgroundColor: blueColor,
+                      foregroundColor: Colors.white,
+                      label: Column(
+                        children: [
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Parents",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              )),
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Teachers",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              )),
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Administrator",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ))
+                        ],
+                      ),
+                      onPressed: () {}),
+                ),
+                const SizedBox(width: 10),
+                FloatingActionButton(
+                    backgroundColor: blueColor,
+                    foregroundColor: Colors.white,
+                    child: Icon(Icons.close),
+                    onPressed: () {
+                      setState(() {
+                        isFABpressed = false;
+                      });
+                    }),
+              ],
+            ),
+          );
   }
-  
+
   @override
   Widget build(BuildContext context) {
-   return SafeArea(
+    double usableHeight = MediaQuery.of(context).size.height - 
+                      AppBar().preferredSize.height - 
+                      MediaQuery.of(context).padding.top;
+    return SafeArea(
       child: Scaffold(
         floatingActionButton: buildChatButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
@@ -240,25 +253,28 @@ class _DashboardpageState extends State<Dashboardpage> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Container(
-              height: MediaQuery.of(context).size.height -274,
-              
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50)),
-                color: Colors.white,
-              ),
-              // child: SingleChildScrollView(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0, left: 20),
-
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 20),
+             Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(top:20),
+                child: Container(
+                  // height: MediaQuery.of(context).size.height - 274,
+                  // height: usableHeight,
+                
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(50),
+                        topRight: Radius.circular(50)),
+                    color: Colors.white,
+                  ),
+                  // child: SingleChildScrollView(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8.0, left: 20),
                           child: Container(
                             height: 45,
                             width: 200,
@@ -276,170 +292,186 @@ class _DashboardpageState extends State<Dashboardpage> {
                             ),
                           ),
                         ),
-                      Column(
+                        Column(
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                    height: 130,
-                                    width: 130,
-                                    decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(top:8.0),
-                                            child: Image.asset('Assets/assignment.png',
-                                            height: 80,
-                                            ),
-                                          ),
-                                          Text("Assignment",
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                          ),)
-                                        ],
-                                      ),
-                                      ),
-                                  
-                                  const SizedBox(width: 40,),
-                                   Container(
-                                    height: 130,
-                                    width: 130,
-                                    decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(top:8.0),
-                                            child: Image.asset('Assets/student.png',
-                                            height: 80,
-                                            ),
-                                          ),
-                                          Text("Student",
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                          ),)
-                                        ],
-                                      ),
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
-                                
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 8.0),
+                                        child: Image.asset(
+                                          'Assets/assignment.png',
+                                          height: 80,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Assignment",
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 40,
+                                ),
+                                Container(
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 8.0),
+                                        child: Image.asset(
+                                          'Assets/student.png',
+                                          height: 80,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Student",
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
-                            const SizedBox(height:40),
-                             Row(
+                            const SizedBox(height: 40),
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                    height: 130,
-                                    width: 130,
-                                    decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(top:8.0),
-                                            child: Image.asset('Assets/publishnotice.png',
-                                            height: 80,
-                                            ),
-                                          ),
-                                          Text("Publish Notice",
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                          ),)
-                                        ],
-                                      ),
-                                  ),
-                                  const SizedBox(width: 40,),
-                                   Container(
-                                    height: 130,
-                                    width: 130,
-                                    decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(top:8.0),
-                                            child: Image.asset('Assets/library.png',
-                                            height: 80,
-                                            ),
-                                          ),
-                                          Text("Library",
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                          ),)
-                                        ],
-                                      ),
-                                  ),
-                                
-                              ],
-                             ),
-                             const SizedBox(height:40),
-                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                    height: 130,
-                                    width: 130,
+                                  height: 130,
+                                  width: 130,
                                   decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(top:8.0),
-                                            child: Image.asset('Assets/meeting.png',
-                                            height: 80,
-                                            ),
-                                          ),
-                                          Text("Meeting",
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                          ),)
-                                        ],
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 8.0),
+                                        child: Image.asset(
+                                          'Assets/publishnotice.png',
+                                          height: 80,
+                                        ),
                                       ),
+                                      Text(
+                                        "Publish Notice",
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  const SizedBox(width: 40,),
-                                   Container(
-                                    height: 130,
-                                    width: 130,
-                                    decoration: BoxDecoration(
-                                      color: greyColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
+                                ),
+                                const SizedBox(
+                                  width: 40,
+                                ),
+                                Container(
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
-                                
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 8.0),
+                                        child: Image.asset(
+                                          'Assets/library.png',
+                                          height: 80,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Library",
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ],
-                             ),
-                             const SizedBox(height:40),
-                            ],
+                            ),
+                            const SizedBox(height: 40),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 8.0),
+                                        child: Image.asset(
+                                          'Assets/meeting.png',
+                                          height: 80,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Meeting",
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 40,
+                                ),
+                                Container(
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 40),
+                          ],
                         ),
                       ],
+                    ),
                   ),
                 ),
-                
               ),
             ),
-          
         ]),
       ),
     );
   }
-  }
+}
