@@ -14,7 +14,7 @@ class Dashboardpage extends StatefulWidget {
 }
 
 class _DashboardpageState extends State<Dashboardpage> {
-  Color blueColor = Color(0xFF167AFA);
+  Color blueColor = Color(0xFF274C77);
   Color greyColor = Color.fromARGB(255, 228, 224, 224);
   bool iconChecked = false;
   bool isFABpressed = false;
@@ -46,41 +46,60 @@ class _DashboardpageState extends State<Dashboardpage> {
               children: [
                 SizedBox(
                   height: 150,
+                  width: 180,
                   child: FloatingActionButton.extended(
                       backgroundColor: blueColor,
                       foregroundColor: Colors.white,
                       label: Column(
                         children: [
-                          TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Parents",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
+                          SizedBox(
+                            width:180 ,
+                            child: TextButton.icon(
+                                onPressed: () {},
+                                 icon:Icon(Icons.family_restroom,
+                                 color: Colors.white,
+                                 ),
+                                label:  Text(
+                                  "Parents",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )),
+                          ),
+                          SizedBox(
+                            width: 180,
+                            child: TextButton.icon(
+                                onPressed: () {},
+                                icon: Icon(Icons.school,
+                                color: Colors.white,
                                 ),
-                              )),
-                          TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Teachers",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
+                                label: Text(
+                                  "Teachers",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )),
+                          ),
+                          SizedBox(
+                            width: 180,
+                            child: TextButton.icon(
+                                onPressed: () {},
+                                icon: Icon(Icons.admin_panel_settings,
+                                color: Colors.white,
                                 ),
-                              )),
-                          TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Administrator",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ))
+                                label: Text(
+                                  "Administrator",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )),
+                          )
                         ],
                       ),
                       onPressed: () {}),
@@ -98,13 +117,9 @@ class _DashboardpageState extends State<Dashboardpage> {
               ],
             ),
           );
-  }
-
-  @override
+          }
+@override
   Widget build(BuildContext context) {
-    double usableHeight = MediaQuery.of(context).size.height - 
-                      AppBar().preferredSize.height - 
-                      MediaQuery.of(context).padding.top;
     return SafeArea(
       child: Scaffold(
         floatingActionButton: buildChatButton(),
@@ -132,30 +147,89 @@ class _DashboardpageState extends State<Dashboardpage> {
           ],
         ),
         drawer: Drawer(
-          // width: MediaQuery.of(context).size.width * 0.8,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.zero,
-          ),
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
             children: [
-              Container(
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  width: MediaQuery.of(context).size.width * 0.8,
+             UserAccountsDrawerHeader(
                   decoration: BoxDecoration(
                     color: blueColor,
-                  )),
-              // const SizedBox(height:10),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.64,
-                width: MediaQuery.of(context).size.width * 0.8,
-                decoration: BoxDecoration(
-                  color: greyColor,
-                ),
-                child: ListTile(),
-              )
-            ],
+                  ),
+                  accountName: Text("Mandeep Pokharel",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  ), 
+                  accountEmail: Text("mandippokharel456@gmail.com"),
+                  currentAccountPicture: CircleAvatar(
+                    radius: 100,
+                    child: SizedBox(
+                      width: 100,
+                      child: ClipOval(
+                        child: Image.asset("Assets/sleepyDiet.jpg",
+                        fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  ),
+                  ListTile(
+                    leading:Icon(Icons.account_circle) ,
+                    title: Text('Profile',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500
+                    ),
+                    ),
+                    onTap: (){},
+                  ),
+                  ListTile(
+                    leading:Icon(Icons.notifications) ,
+                    title: Text('Notification',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500
+                    ),
+                    ),
+                    onTap: (){},
+                  ),
+                   ListTile(
+                    leading:Icon(Icons.policy) ,
+                    title: Text('Policies',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500
+                    ),
+                    ),
+                    onTap: (){},
+                  ),
+                  const Divider(color: Colors.black,),
+                  ListTile(
+                    leading:Icon(Icons.settings) ,
+                    title: Text('Settings',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500
+                    ),
+                    ),
+                    onTap: (){},
+                  ),
+                  ListTile(
+                    leading:Icon(Icons.notifications) ,
+                    title: Text('LogOut',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.red
+                    ),
+                    ),
+                    onTap: (){},
+                  ),
+                  const Divider(color: Colors.black,),
+                  ListTile(
+                    leading:Icon(Icons.people) ,
+                    title: Text('About Us',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500
+                    ),
+                    ),
+                    onTap: (){},
+                  )
+              ],
           ),
         ),
         body: Column(children: [
@@ -195,6 +269,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       color: blueColor,
                                     ),
                                     child: Row(
+                                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           "Mark Your Attendance",
@@ -244,9 +319,17 @@ class _DashboardpageState extends State<Dashboardpage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 15),
                       child: CircleAvatar(
-                        radius: 45,
-                        backgroundColor: Colors.white,
-                      ),
+                        radius: 50,
+                        child: SizedBox(
+                          width: 100,
+                          height:100,
+                          child: ClipOval(
+                            child: Image.asset( 'Assets/sleepyDiet.jpg',
+                            fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        ),
                     ),
                   ],
                 ),
@@ -267,7 +350,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(50),
                         topRight: Radius.circular(50)),
-                    color: Colors.white,
+                    color: Color(0xFF5D7DAC),
                   ),
                   // child: SingleChildScrollView(
                   child: SingleChildScrollView(
@@ -279,13 +362,13 @@ class _DashboardpageState extends State<Dashboardpage> {
                             height: 45,
                             width: 200,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Color(0xFF5D7DAC),
                               // borderRadius: BorderRadius.only(topLeft:Radius.circular(50),topRight: Radius.circular(50))
                             ),
                             child: Text(
                               "Explore Categories",
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 20,
                               ),
