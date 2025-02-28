@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:teachers/Dashhboard/dashboard.dart';
-import 'package:teachers/main.dart';
-
-void main(){
-  runApp(MyApp());
-}
 class Notificationpage extends StatefulWidget {
   const Notificationpage({super.key});
 
@@ -14,7 +8,7 @@ class Notificationpage extends StatefulWidget {
 }
 
 class NotificationpageState extends State<Notificationpage> {
-   Color blueColor=  Color(0xFF167AFA);
+   
   @override
   Widget build(BuildContext context) {
     return SafeArea(

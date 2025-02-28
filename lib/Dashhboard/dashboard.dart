@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:teachers/Pages/notificationPage.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Assignment/assignment.dart';
+import 'package:teachers/Pages%20from%20Dashboard/notificationPage.dart';
 import 'package:teachers/main.dart';
 
+Color blueColor = Color(0xFF274C77);
+Color greyColor = Color.fromARGB(255, 228, 224, 224);
+Color secBlueColor = Color(0xFF5D7DAC);
 void main() {
   runApp(MyApp());
 }
@@ -14,11 +18,10 @@ class Dashboardpage extends StatefulWidget {
 }
 
 class _DashboardpageState extends State<Dashboardpage> {
-  Color blueColor = Color(0xFF274C77);
-  Color greyColor = Color.fromARGB(255, 228, 224, 224);
+  // Color blueColor = Color(0xFF274C77);
+  // Color greyColor = Color.fromARGB(255, 228, 224, 224);
   bool iconChecked = false;
   bool isFABpressed = false;
-  
 
   Widget buildChatButton() {
     return !isFABpressed
@@ -53,13 +56,14 @@ class _DashboardpageState extends State<Dashboardpage> {
                       label: Column(
                         children: [
                           SizedBox(
-                            width:180 ,
+                            width: 180,
                             child: TextButton.icon(
                                 onPressed: () {},
-                                 icon:Icon(Icons.family_restroom,
-                                 color: Colors.white,
-                                 ),
-                                label:  Text(
+                                icon: Icon(
+                                  Icons.family_restroom,
+                                  color: Colors.white,
+                                ),
+                                label: Text(
                                   "Parents",
                                   style: TextStyle(
                                     color: Colors.white,
@@ -72,8 +76,9 @@ class _DashboardpageState extends State<Dashboardpage> {
                             width: 180,
                             child: TextButton.icon(
                                 onPressed: () {},
-                                icon: Icon(Icons.school,
-                                color: Colors.white,
+                                icon: Icon(
+                                  Icons.school,
+                                  color: Colors.white,
                                 ),
                                 label: Text(
                                   "Teachers",
@@ -88,8 +93,9 @@ class _DashboardpageState extends State<Dashboardpage> {
                             width: 180,
                             child: TextButton.icon(
                                 onPressed: () {},
-                                icon: Icon(Icons.admin_panel_settings,
-                                color: Colors.white,
+                                icon: Icon(
+                                  Icons.admin_panel_settings,
+                                  color: Colors.white,
                                 ),
                                 label: Text(
                                   "Administrator",
@@ -117,8 +123,9 @@ class _DashboardpageState extends State<Dashboardpage> {
               ],
             ),
           );
-          }
-@override
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -149,87 +156,87 @@ class _DashboardpageState extends State<Dashboardpage> {
         drawer: Drawer(
           child: ListView(
             children: [
-             UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(
-                    color: blueColor,
-                  ),
-                  accountName: Text("Mandeep Pokharel",
+              UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: blueColor,
+                ),
+                accountName: Text(
+                  "Mandeep Pokharel",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
                   ),
-                  ), 
-                  accountEmail: Text("mandippokharel456@gmail.com"),
-                  currentAccountPicture: CircleAvatar(
-                    radius: 100,
-                    child: SizedBox(
-                      width: 100,
-                      child: ClipOval(
-                        child: Image.asset("Assets/sleepyDiet.jpg",
+                ),
+                accountEmail: Text("mandippokharel456@gmail.com"),
+                currentAccountPicture: CircleAvatar(
+                  radius: 100,
+                  child: SizedBox(
+                    width: 100,
+                    child: ClipOval(
+                      child: Image.asset(
+                        "Assets/sleepyDiet.jpg",
                         fit: BoxFit.cover,
-                        ),
                       ),
                     ),
                   ),
-                  ),
-                  ListTile(
-                    leading:Icon(Icons.account_circle) ,
-                    title: Text('Profile',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500
-                    ),
-                    ),
-                    onTap: (){},
-                  ),
-                  ListTile(
-                    leading:Icon(Icons.notifications) ,
-                    title: Text('Notification',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500
-                    ),
-                    ),
-                    onTap: (){},
-                  ),
-                   ListTile(
-                    leading:Icon(Icons.policy) ,
-                    title: Text('Policies',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500
-                    ),
-                    ),
-                    onTap: (){},
-                  ),
-                  const Divider(color: Colors.black,),
-                  ListTile(
-                    leading:Icon(Icons.settings) ,
-                    title: Text('Settings',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500
-                    ),
-                    ),
-                    onTap: (){},
-                  ),
-                  ListTile(
-                    leading:Icon(Icons.notifications) ,
-                    title: Text('LogOut',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.red
-                    ),
-                    ),
-                    onTap: (){},
-                  ),
-                  const Divider(color: Colors.black,),
-                  ListTile(
-                    leading:Icon(Icons.people) ,
-                    title: Text('About Us',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500
-                    ),
-                    ),
-                    onTap: (){},
-                  )
-              ],
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text(
+                  'Profile',
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.notifications),
+                title: Text(
+                  'Notification',
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.policy),
+                title: Text(
+                  'Policies',
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
+              ),
+              const Divider(
+                color: Colors.black,
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text(
+                  'Settings',
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.notifications),
+                title: Text(
+                  'LogOut',
+                  style:
+                      TextStyle(fontWeight: FontWeight.w500, color: Colors.red),
+                ),
+                onTap: () {},
+              ),
+              const Divider(
+                color: Colors.black,
+              ),
+              ListTile(
+                leading: Icon(Icons.people),
+                title: Text(
+                  'About Us',
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+                onTap: () {},
+              )
+            ],
           ),
         ),
         body: Column(children: [
@@ -269,7 +276,8 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       color: blueColor,
                                     ),
                                     child: Row(
-                                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           "Mark Your Attendance",
@@ -279,7 +287,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                             fontSize: 16,
                                           ),
                                         ),
-                                        const SizedBox(width: 1),
+                                        const SizedBox(width: 0),
                                         IconButton(
                                           onPressed: () {
                                             setState(() {
@@ -322,14 +330,15 @@ class _DashboardpageState extends State<Dashboardpage> {
                         radius: 50,
                         child: SizedBox(
                           width: 100,
-                          height:100,
+                          height: 100,
                           child: ClipOval(
-                            child: Image.asset( 'Assets/sleepyDiet.jpg',
-                            fit: BoxFit.cover,
+                            child: Image.asset(
+                              'Assets/sleepyDiet.jpg',
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -338,50 +347,51 @@ class _DashboardpageState extends State<Dashboardpage> {
           ),
           // Padding(
           //   padding: const EdgeInsets.only(top: 20),
-             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top:20),
-                child: Container(
-                  // height: MediaQuery.of(context).size.height - 274,
-                  // height: usableHeight,
-                
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(50),
-                        topRight: Radius.circular(50)),
-                    color: Color(0xFF5D7DAC),
-                  ),
-                  // child: SingleChildScrollView(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8.0, left: 20),
-                          child: Container(
-                            height: 45,
-                            width: 200,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF5D7DAC),
-                              // borderRadius: BorderRadius.only(topLeft:Radius.circular(50),topRight: Radius.circular(50))
-                            ),
-                            child: Text(
-                              "Explore Categories",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                              ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Container(
+                // height: MediaQuery.of(context).size.height - 274,
+                // height: usableHeight,
+
+                width: double.maxFinite,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50)),
+                  color: Color(0xFF5D7DAC),
+                ),
+                // child: SingleChildScrollView(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0, left: 20),
+                        child: Container(
+                          height: 45,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF5D7DAC),
+                            // borderRadius: BorderRadius.only(topLeft:Radius.circular(50),topRight: Radius.circular(50))
+                          ),
+                          child: Text(
+                            "Explore Categories",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
                             ),
                           ),
                         ),
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
+                      ),
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              GestureDetector(
+                                child: Container(
                                   height: 130,
                                   width: 130,
                                   decoration: BoxDecoration(
@@ -391,7 +401,8 @@ class _DashboardpageState extends State<Dashboardpage> {
                                   child: Column(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 8.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 8.0),
                                         child: Image.asset(
                                           'Assets/assignment.png',
                                           height: 80,
@@ -403,158 +414,244 @@ class _DashboardpageState extends State<Dashboardpage> {
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 40,
-                                ),
-                                Container(
-                                  height: 130,
-                                  width: 130,
-                                  decoration: BoxDecoration(
-                                    color: greyColor,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 8.0),
-                                        child: Image.asset(
-                                          'Assets/student.png',
-                                          height: 80,
-                                        ),
                                       ),
-                                      Text(
-                                        "Student",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
                                     ],
                                   ),
                                 ),
-                              ],
-                            ),
-                            const SizedBox(height: 40),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  height: 130,
-                                  width: 130,
-                                  decoration: BoxDecoration(
-                                    color: greyColor,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 8.0),
-                                        child: Image.asset(
-                                          'Assets/publishnotice.png',
-                                          height: 80,
-                                        ),
+                                onTap: () {
+                                  showBottomSheet(context);
+                                },
+                                onDoubleTap: (){
+                                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
+                                },
+                              ),
+                              const SizedBox(
+                                width: 40,
+                              ),
+                              Container(
+                                height: 130,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: greyColor,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Image.asset(
+                                        'Assets/student.png',
+                                        height: 80,
                                       ),
-                                      Text(
-                                        "Publish Notice",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 40,
-                                ),
-                                Container(
-                                  height: 130,
-                                  width: 130,
-                                  decoration: BoxDecoration(
-                                    color: greyColor,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 8.0),
-                                        child: Image.asset(
-                                          'Assets/library.png',
-                                          height: 80,
-                                        ),
+                                    ),
+                                    Text(
+                                      "Student",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
                                       ),
-                                      Text(
-                                        "Library",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    )
+                                  ],
                                 ),
-                              ],
-                            ),
-                            const SizedBox(height: 40),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  height: 130,
-                                  width: 130,
-                                  decoration: BoxDecoration(
-                                    color: greyColor,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 8.0),
-                                        child: Image.asset(
-                                          'Assets/meeting.png',
-                                          height: 80,
-                                        ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 40),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 130,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: greyColor,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Image.asset(
+                                        'Assets/publishnotice.png',
+                                        height: 80,
                                       ),
-                                      Text(
-                                        "Meeting",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    ),
+                                    Text(
+                                      "Publish Notice",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                const SizedBox(
-                                  width: 40,
+                              ),
+                              const SizedBox(
+                                width: 40,
+                              ),
+                              Container(
+                                height: 130,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: greyColor,
+                                  borderRadius: BorderRadius.circular(20),
                                 ),
-                                Container(
-                                  height: 130,
-                                  width: 130,
-                                  decoration: BoxDecoration(
-                                    color: greyColor,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Image.asset(
+                                        'Assets/library.png',
+                                        height: 80,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Library",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    )
+                                  ],
                                 ),
-                              ],
-                            ),
-                            const SizedBox(height: 40),
-                          ],
-                        ),
-                      ],
-                    ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 40),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 130,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: greyColor,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Image.asset(
+                                        'Assets/meeting.png',
+                                        height: 80,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Meeting",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 40,
+                              ),
+                              Container(
+                                height: 130,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: greyColor,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 40),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
+          ),
         ]),
       ),
     );
   }
+}
+
+void showBottomSheet(BuildContext context) {
+  showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: MediaQuery.of(context).size.height*0.25,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: secBlueColor,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                child: Container(
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                    color:greyColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: .0),
+                        child: Image.asset('Assets/give_assignment.png',
+                        height:80,
+                        ),
+                      ),
+                      Text('Assignment',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),)
+                    ],
+                  ),
+                ),
+                onTap: (){
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
+                },
+              ),
+              const SizedBox(width: 40),
+              GestureDetector(
+                child: Container(
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                    color:greyColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Image.asset('Assets/test.png',
+                        height: 80,
+                        ),
+                      ),
+                      Text('Take Test',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      });
 }
