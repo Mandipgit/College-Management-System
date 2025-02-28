@@ -14,12 +14,18 @@ class _assignment_PageState extends State<assignment_Page> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Assignment Page"),
+          title: Text("Assignment Page",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          ),
           backgroundColor: blueColor,
           centerTitle: true,
           leading: IconButton(onPressed: (){
             Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Dashboardpage()));
-          }, icon: Icon(Icons.arrow_back)),
+          }, icon: Icon(Icons.arrow_back),
+          color:Colors.white,
+          ),
         ),
       ));
   }

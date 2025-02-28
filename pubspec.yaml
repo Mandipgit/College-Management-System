@@ -67,6 +67,8 @@ flutter:
       - Assets/sleepyDiet.jpg
       - Assets/give_assignment.png
       - Assets/test.png
+      - Assets/attendance.png
+      - Assets/student_details.png
 
   #   - images/a_dot_ham.jpeg
 
