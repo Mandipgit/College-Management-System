@@ -27,33 +27,78 @@ class _assignment_PageState extends State<assignment_Page> {
           color:Colors.white,
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Center(
-                child: Container(
-                  height:80,
-                  width:100,
-                  decoration: BoxDecoration(
-                    color: blueColor,
+        body: 
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Center(
+                    child: Container(
+                      height:50,
+                      width:double.maxFinite,
+                      decoration: BoxDecoration(
+                        color: secBlueColor,
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: Center(
+                        child: switch (assignment){
+                          1=>Text('BscCsit',
+                           style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.w700,
+                           ),
+                          ),
+                          2=>Text('BIT',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.w700,
+                          ),),
+                          3=>Text('B.Tech',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.w700,
+                          ),),
+                          4=>Text('BND',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.w700,
+                          ),),
+                          5=>Text('Physics',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.w700,
+                          ),),
+                          6=>Text('Geology',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.w700,
+                          ),),
+                          int()=>Text('Unknown Course',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          )
+                        },
+                      ),
+                     ),
                   ),
-                  child: switch (assignment){
-                    1=>Text('BscCsit'),
-                    2=>Text('BIT'),
-                    3=>Text('B.Tech'),
-                    4=>Text('BND'),
-                    5=>Text('Physics'),
-                    6=>Text('Geology'),
-                    int()=>Text('Unknown Course')
-                  },
-                 ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
-      ));
+      );
   }
 }

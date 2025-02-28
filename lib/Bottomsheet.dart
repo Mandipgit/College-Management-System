@@ -5,89 +5,126 @@ import 'package:teachers/Pages%20from%20Dashboard/Assignment/test.dart';
 showBottomSheetFaculty(BuildContext context){
   showModalBottomSheet(context: context, builder: (context){
     return Container(
-      height: MediaQuery.of(context).size.height*0.45,
+      height: MediaQuery.of(context).size.height*0.43,
       decoration: BoxDecoration(
         color: secBlueColor,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
       ),
-      child: Column(
-        children: [
-          ListTile(
-            title: Text("BSc.CSIT",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),
-            ),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ListTile(
+              title: Text("BSc.CSIT",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
+              ),
             onTap: (){
-           assignment=1;
-           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
-          },
-          ),
-          ListTile(
-            title: Text("BIT",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),),
-            onTap: (){
-              assignment=2;
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
+              take_assignment?(
+                assignment=1,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()))
+              ):(
+                test=1,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page()))
+              );
             },
-          ),
-          ListTile(
-            title: Text("B.Tech",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),),
-             onTap: (){
-              assignment=3;
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
-            },
-          ),
-          ListTile(
-            title: Text("BND",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),),
-             onTap: (){
-              assignment=4;
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
-            },
-          ),
-          ListTile(
-            title: Text("Physics",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),),
-             onTap: (){
-              assignment=5;
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
-            },
-          ),
-          ListTile(
-            title: Text("Geology",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),),
-             onTap: (){
-              assignment=6;
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
-            },
-          ),
-        ],
-      ),
+             
+             ),
+            
+            ListTile(
+              title: Text("BIT",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),),
+              onTap: (){
+               take_assignment?(
+                assignment=2,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()))
+              ):(
+                test=2,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page()))
+              );
+              },
+            ),
+            ListTile(
+              title: Text("B.Tech",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),),
+               onTap: (){
+                take_assignment?(
+                assignment=3,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()))
+              ):(
+                test=3,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page()))
+              );
+              },
+            ),
+            ListTile(
+              title: Text("BND",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),),
+               onTap: (){
+              take_assignment?(
+                assignment=1,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()))
+              ):(
+                test=1,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page()))
+              );
+              },
+            ),
+            ListTile(
+              title: Text("Physics",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),),
+               onTap: (){
+              take_assignment?(
+                assignment=1,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()))
+              ):(
+                test=1,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page()))
+              );
+              },
+            ),
+            ListTile(
+              title: Text("Geology",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),),
+               onTap: (){
+              take_assignment?(
+                assignment=1,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()))
+              ):(
+                test=1,
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page()))
+              );
+              },
+        ),
+    ],
+        ),
+      )  
     );
+    
   });
 }
 void showBottomSheetStudent(BuildContext context){
@@ -96,7 +133,7 @@ void showBottomSheetStudent(BuildContext context){
       height: MediaQuery.of(context).size.height*0.25,
       decoration: BoxDecoration(
         color: secBlueColor,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
       ),
        child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -108,7 +145,7 @@ void showBottomSheetStudent(BuildContext context){
                   width: 130,
                   decoration: BoxDecoration(
                     color:greyColor,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -176,7 +213,7 @@ void showBottomSheetAssignment(BuildContext context) {
         return Container(
           height: MediaQuery.of(context).size.height*0.25,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
             color: secBlueColor,
           ),
           child: Row(
@@ -210,6 +247,7 @@ void showBottomSheetAssignment(BuildContext context) {
                   ),
                 ),
                 onTap: (){
+                  take_assignment=true;
                  showBottomSheetFaculty(context);
                 },
               ),
@@ -242,7 +280,7 @@ void showBottomSheetAssignment(BuildContext context) {
                   ),
                 ),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page()));
+                  showBottomSheetFaculty(context);
                 },
               ),
             ],

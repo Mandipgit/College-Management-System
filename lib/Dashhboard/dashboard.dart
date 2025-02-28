@@ -9,6 +9,9 @@ Color blueColor = Color(0xFF274C77);
 Color greyColor = Color.fromARGB(255, 228, 224, 224);
 Color secBlueColor = Color(0xFF5D7DAC);
 int assignment=0;
+int test=0;
+bool take_assignment=false;
+
 void main() {
   runApp(MyApp());
 }
@@ -422,8 +425,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                   ),
                                 ),
                                 onTap: () {
-                                 
-                                  showBottomSheetAssignment(context);
+                                 showBottomSheetAssignment(context);
                                 },
                                 onDoubleTap: (){
                                   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
