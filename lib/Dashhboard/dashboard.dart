@@ -8,6 +8,8 @@ import 'package:teachers/main.dart';
 Color blueColor = Color(0xFF274C77);
 Color greyColor = Color.fromARGB(255, 228, 224, 224);
 Color secBlueColor = Color(0xFF5D7DAC);
+int Faculty=0;
+int Semester=0;
 int assignment=0;
 int test=0;
 bool take_assignment=false;
@@ -427,9 +429,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                 onTap: () {
                                  showBottomSheetAssignment(context);
                                 },
-                                onDoubleTap: (){
-                                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignment_Page()));
-                                },
+                                
                               ),
                               const SizedBox(
                                 width: 40,
@@ -462,7 +462,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                   ),
                                 ),
                                 onTap:(){
-                                  showBottomSheetStudent(context);
+                                  // showBottomSheetStudent(context);
                                 }
                               ),
                             ],
@@ -585,6 +585,7 @@ class _DashboardpageState extends State<Dashboardpage> {
         ]),
       ),
     );
+    
   }
 }
 
