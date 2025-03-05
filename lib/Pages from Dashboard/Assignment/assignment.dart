@@ -17,7 +17,7 @@ class _assignmentPageState extends State<assignmentPage> {
     return Scaffold(
       appBar: AppBar(
          backgroundColor: blueColor,
-          title: Text(widget.faculty,
+          title: Text("Assignment",
           style: TextStyle(
             color: Colors.white,
           ),),
@@ -42,7 +42,7 @@ class _assignmentPageState extends State<assignmentPage> {
                 color: secBlueColor,
               ),
               child: Center(
-                child: Text(widget.Semester,
+                child: Text(("${widget.faculty} (${widget.Semester})"),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
