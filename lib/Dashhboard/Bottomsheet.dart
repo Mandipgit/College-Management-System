@@ -198,17 +198,15 @@ void showBottomSheetAssignment(BuildContext context) {
         );
       });
 }
-void showBottomSheetStudent(BuildContext context) {
-  showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Container(
-          height: MediaQuery.of(context).size.height*0.25,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
-            color: secBlueColor,
-          ),
-          child: Row(
+void showBottomSheetStudent(BuildContext context){
+  showModalBottomSheet(context: context, builder: (context){
+    return Container(
+      height: MediaQuery.of(context).size.height*0.25,
+      decoration: BoxDecoration(
+        color: secBlueColor,
+        borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
+      ),
+       child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -225,9 +223,9 @@ void showBottomSheetStudent(BuildContext context) {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: .0),
+                        padding: const EdgeInsets.only(top: 8.0),
                         child: Image.asset('Assets/attendance.png',
-                        height:80,
+                        height:75,
                         ),
                       ),
                       Text('Attendance',
@@ -239,8 +237,7 @@ void showBottomSheetStudent(BuildContext context) {
                   ),
                 ),
                 onTap: (){
-            
-                 showBottomSheetFaculty(context);
+                  
                 },
               ),
               const SizedBox(width: 40),
@@ -272,15 +269,14 @@ void showBottomSheetStudent(BuildContext context) {
                   ),
                 ),
                 onTap: () {
-          showBottomSheetFaculty(context);
+                  showBottomSheetFaculty(context);
                 },
               ),
             ],
           ),
-        );
-      });
+    );
+  });
 }
-
 
 
 
