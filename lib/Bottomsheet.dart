@@ -230,7 +230,7 @@ void showBottomSheetStudent(BuildContext context) {
                         height:80,
                         ),
                       ),
-                      Text('Take Attendance',
+                      Text('Attendance',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
