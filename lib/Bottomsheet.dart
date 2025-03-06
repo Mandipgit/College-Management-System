@@ -7,6 +7,7 @@ final List<String>faculties=['BSc.CSIT','BIT','B.Tech','BND','Physics','Geology'
 final List <String>Semester=['1stSemester','2ndSemester','3rdSemester','4thSemester','5thSemester','6thSemester','7thSemester','8thSemester'];
 final List <String>Year=['1st Year','2nd Year','3rd Year','4th Year'];
 bool takeTest=false;
+bool assignment=false;
 showBottomSheetFaculty(BuildContext context){
   showModalBottomSheet(context: context, builder: (context){
     return Container(
@@ -61,11 +62,10 @@ showBottomSheetSemester(BuildContext context,String faculty){
                  fontSize: 20,
                  fontWeight: FontWeight.w600,)),
                  onTap: (){
-            String year = (index < Year.length) 
+               String year = (index < Year.length) 
                     ? Year[index] 
                     : "4th Year"; 
-
-                takeTest
+                    takeTest
                     ? Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => test_Page(
                           testfaculty: faculty,
@@ -191,6 +191,88 @@ void showBottomSheetAssignment(BuildContext context) {
                 onTap: () {
                   takeTest=true;
                   showBottomSheetFaculty(context);
+                },
+              ),
+            ],
+          ),
+        );
+      });
+}
+void showBottomSheetStudent(BuildContext context) {
+  showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: MediaQuery.of(context).size.height*0.25,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
+            color: secBlueColor,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                child: Container(
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                    color:greyColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: .0),
+                        child: Image.asset('Assets/attendance.png',
+                        height:80,
+                        ),
+                      ),
+                      Text('Take Attendance',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),)
+                    ],
+                  ),
+                ),
+                onTap: (){
+            
+                 showBottomSheetFaculty(context);
+                },
+              ),
+              const SizedBox(width: 40),
+              GestureDetector(
+                child: Container(
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                    color:greyColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Image.asset('Assets/student_details.png',
+                        height: 80,
+                        ),
+                      ),
+                      Text('Student Details',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      ),
+                    ],
+                  ),
+                ),
+                onTap: () {
+          showBottomSheetFaculty(context);
                 },
               ),
             ],
