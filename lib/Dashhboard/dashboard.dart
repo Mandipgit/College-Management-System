@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/Bottomsheet.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Profilepage.dart';
 import 'package:teachers/Pages%20from%20Dashboard/notificationPage.dart';
 import 'package:teachers/main.dart';
 
@@ -172,11 +173,17 @@ class _DashboardpageState extends State<Dashboardpage> {
                   radius: 100,
                   child: SizedBox(
                     width: 100,
-                    child: ClipOval(
-                      child: Image.asset(
-                        "Assets/sleepyDiet.jpg",
-                        fit: BoxFit.cover,
+                    child: GestureDetector(
+                      child: ClipOval(
+                        child: Image.asset(
+                          "Assets/sleepyDiet.jpg",
+                          fit: BoxFit.cover,
+                        ),
                       ),
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => profilePage()));
+                      },
                     ),
                   ),
                 ),
@@ -345,7 +352,7 @@ class _DashboardpageState extends State<Dashboardpage> {
               ),
             ),
           ),
-        Expanded(
+          Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Container(
@@ -356,7 +363,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                       topRight: Radius.circular(50)),
                   color: Color(0xFF5D7DAC),
                 ),
-               child: SingleChildScrollView(
+                child: SingleChildScrollView(
                   child: Column(
                     children: [
                       Padding(
@@ -413,44 +420,43 @@ class _DashboardpageState extends State<Dashboardpage> {
                                   ),
                                 ),
                                 onTap: () {
-                                 showBottomSheetAssignment(context);
+                                  showBottomSheetAssignment(context);
                                 },
-                                
                               ),
                               const SizedBox(
                                 width: 40,
                               ),
                               GestureDetector(
-                                child: Container(
-                                  height: 130,
-                                  width: 130,
-                                  decoration: BoxDecoration(
-                                    color: greyColor,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 8.0),
-                                        child: Image.asset(
-                                          'Assets/student.png',
-                                          height: 80,
+                                  child: Container(
+                                    height: 130,
+                                    width: 130,
+                                    decoration: BoxDecoration(
+                                      color: greyColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 8.0),
+                                          child: Image.asset(
+                                            'Assets/student.png',
+                                            height: 80,
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        "Student",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ],
+                                        Text(
+                                          "Student",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                onTap:(){
-                                  showBottomSheetStudent(context);
-                                }
-                              ),
+                                  onTap: () {
+                                    showBottomSheetStudent(context);
+                                  }),
                             ],
                           ),
                           const SizedBox(height: 40),
@@ -571,9 +577,5 @@ class _DashboardpageState extends State<Dashboardpage> {
         ]),
       ),
     );
-    
   }
 }
-
-
-
