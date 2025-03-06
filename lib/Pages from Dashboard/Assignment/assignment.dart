@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:teachers/Bottomsheet.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 
 class assignmentPage extends StatefulWidget {
   final String faculty;
   final String Semester;
-  const assignmentPage({required this.faculty,required this.Semester});
-  
+  final String Year;
+  const assignmentPage(
+      {required this.faculty, required this.Semester, required this.Year});
 
   @override
   State<assignmentPage> createState() => _assignmentPageState();
@@ -16,19 +18,23 @@ class _assignmentPageState extends State<assignmentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         backgroundColor: blueColor,
-          title: Text("Assignment",
+        backgroundColor: blueColor,
+        title: Text(
+          "Assignment",
           style: TextStyle(
             color: Colors.white,
-          ),),
-          centerTitle: true,
-          leading: IconButton(onPressed: (){
-            setState(() {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Dashboardpage()));
-            });
-          },
-          color: Colors.white,
-          icon: Icon(Icons.arrow_back)),
+          ),
+        ),
+        centerTitle: true,
+        leading: IconButton(
+            onPressed: () {
+              setState(() {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => Dashboardpage()));
+              });
+            },
+            color: Colors.white,
+            icon: Icon(Icons.arrow_back)),
       ),
       body: Column(
         children: [
@@ -42,12 +48,16 @@ class _assignmentPageState extends State<assignmentPage> {
                 color: secBlueColor,
               ),
               child: Center(
-                child: Text(("${widget.faculty} (${widget.Semester})"),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),),
+                child: Text(
+                  (widget.faculty == "BSc.CSIT" || widget.faculty == "BIT")
+                      ? "${widget.faculty} (${widget.Semester})"
+                      : "${widget.faculty} (${widget.Year})",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
             ),
           )

@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Bottomsheet.dart';
-import 'package:teachers/Pages%20from%20Dashboard/Assignment/assignment.dart';
-import 'package:teachers/Pages%20from%20Dashboard/Assignment/test.dart';
 import 'package:teachers/Pages%20from%20Dashboard/notificationPage.dart';
 import 'package:teachers/main.dart';
 
 Color blueColor = Color(0xFF274C77);
 Color greyColor = Color.fromARGB(255, 228, 224, 224);
 Color secBlueColor = Color(0xFF5D7DAC);
-int Faculty=0;
-int Semester=0;
-int assignment=0;
-int test=0;
-bool take_assignment=false;
-
 void main() {
   runApp(MyApp());
 }
@@ -353,15 +345,10 @@ class _DashboardpageState extends State<Dashboardpage> {
               ),
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.only(top: 20),
-          Expanded(
+        Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Container(
-                // height: MediaQuery.of(context).size.height - 274,
-                // height: usableHeight,
-
                 width: double.maxFinite,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -369,8 +356,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                       topRight: Radius.circular(50)),
                   color: Color(0xFF5D7DAC),
                 ),
-                // child: SingleChildScrollView(
-                child: SingleChildScrollView(
+               child: SingleChildScrollView(
                   child: Column(
                     children: [
                       Padding(
@@ -462,7 +448,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                   ),
                                 ),
                                 onTap:(){
-                                  // showBottomSheetStudent(context);
+                                  
                                 }
                               ),
                             ],

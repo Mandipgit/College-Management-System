@@ -6,6 +6,7 @@ import 'package:teachers/Pages%20from%20Dashboard/Assignment/test.dart';
 final List<String>faculties=['BSc.CSIT','BIT','B.Tech','BND','Physics','Geology'];
 final List <String>Semester=['1stSemester','2ndSemester','3rdSemester','4thSemester','5thSemester','6thSemester','7thSemester','8thSemester'];
 final List <String>Year=['1st Year','2nd Year','3rd Year','4th Year'];
+bool takeTest=false;
 showBottomSheetFaculty(BuildContext context){
   showModalBottomSheet(context: context, builder: (context){
     return Container(
@@ -43,7 +44,7 @@ showBottomSheetFaculty(BuildContext context){
 showBottomSheetSemester(BuildContext context,String faculty){
   showModalBottomSheet(context: context, builder: (context){
     return Container(
-      height: MediaQuery.of(context).size.height*0.43,
+      height: MediaQuery.of(context).size.height*0.52,
       decoration: BoxDecoration(
         color: secBlueColor,
         borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
@@ -60,7 +61,23 @@ showBottomSheetSemester(BuildContext context,String faculty){
                  fontSize: 20,
                  fontWeight: FontWeight.w600,)),
                  onTap: (){
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignmentPage(faculty: faculty, Semester: Semester[index])));
+            String year = (index < Year.length) 
+                    ? Year[index] 
+                    : "4th Year"; 
+
+                takeTest
+                    ? Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => test_Page(
+                          testfaculty: faculty,
+                          testSemester: Semester[index],
+                          testYear: year,
+                        )))
+                    : Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => assignmentPage(
+                          faculty: faculty,
+                          Semester: Semester[index],
+                          Year: year,
+                        )));
                  },
            );
          }),
@@ -88,7 +105,8 @@ showBottomSheetYear(BuildContext context,String faculty){
                  fontSize: 20,
                  fontWeight: FontWeight.w600,)),
                  onTap: (){
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignmentPage(faculty: faculty, Semester: Year[index])));
+                  takeTest?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page(testfaculty: faculty, testSemester: Semester[index],testYear: Year[index],)))):
+                  (Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignmentPage(faculty:faculty,Semester:Semester[index],Year:Year[index]))));
                  },
                  );
          }),
@@ -138,7 +156,7 @@ void showBottomSheetAssignment(BuildContext context) {
                   ),
                 ),
                 onTap: (){
-                  take_assignment=true;
+            
                  showBottomSheetFaculty(context);
                 },
               ),
@@ -171,6 +189,7 @@ void showBottomSheetAssignment(BuildContext context) {
                   ),
                 ),
                 onTap: () {
+                  takeTest=true;
                   showBottomSheetFaculty(context);
                 },
               ),
