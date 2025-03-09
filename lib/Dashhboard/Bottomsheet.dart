@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/assignment.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/test.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Student/attendance.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Student/studentdetails.dart';
 
 final List<String>faculties=['BSc.CSIT','BIT','B.Tech','BND','Physics','Geology'];
@@ -9,6 +10,7 @@ final List <String>Semester=['1stSemester','2ndSemester','3rdSemester','4thSemes
 final List <String>Year=['1st Year','2nd Year','3rd Year','4th Year'];
 bool takeTest=false;
 bool stddetails=false;
+bool stdattenndance=false;
 bool assignment=false;
 showBottomSheetFaculty(BuildContext context){
   showModalBottomSheet(context: context, builder: (context){
@@ -78,6 +80,12 @@ showBottomSheetSemester(BuildContext context,String faculty){
                           faculty: faculty,
                           Semester: Semester[index],
                           Year: year,
+                        ))):
+                        stdattenndance? Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => attendance(
+                          faculty: faculty,
+                          Semester: Semester[index],
+                          Year: year,
                         )))
                     : Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => assignmentPage(
@@ -114,6 +122,7 @@ showBottomSheetYear(BuildContext context,String faculty){
                  onTap: (){
                   takeTest?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page(testfaculty: faculty, testSemester: Semester[index],testYear: Year[index],)))):
                   stddetails?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>studentDetails(faculty:faculty,Semester:Semester[index],Year:Year[index])))):
+                  stdattenndance?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>attendance(faculty:faculty,Semester:Semester[index],Year:Year[index])))):
                   (Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignmentPage(faculty:faculty,Semester:Semester[index],Year:Year[index]))));
                  },
                  );
@@ -245,7 +254,8 @@ void showBottomSheetStudent(BuildContext context){
                   ),
                 ),
                 onTap: (){
-                  
+                  stdattenndance=true;
+                  showBottomSheetFaculty(context);
                 },
               ),
               const SizedBox(width: 40),
