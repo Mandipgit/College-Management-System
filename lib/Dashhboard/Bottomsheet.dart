@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/assignment.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/test.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Student/studentdetails.dart';
 
 final List<String>faculties=['BSc.CSIT','BIT','B.Tech','BND','Physics','Geology'];
 final List <String>Semester=['1stSemester','2ndSemester','3rdSemester','4thSemester','5thSemester','6thSemester','7thSemester','8thSemester'];
 final List <String>Year=['1st Year','2nd Year','3rd Year','4th Year'];
 bool takeTest=false;
+bool stddetails=false;
 bool assignment=false;
 showBottomSheetFaculty(BuildContext context){
   showModalBottomSheet(context: context, builder: (context){
@@ -71,6 +73,11 @@ showBottomSheetSemester(BuildContext context,String faculty){
                           testfaculty: faculty,
                           testSemester: Semester[index],
                           testYear: year,
+                        ))):stddetails?Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => studentDetails(
+                          faculty: faculty,
+                          Semester: Semester[index],
+                          Year: year,
                         )))
                     : Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => assignmentPage(
@@ -106,6 +113,7 @@ showBottomSheetYear(BuildContext context,String faculty){
                  fontWeight: FontWeight.w600,)),
                  onTap: (){
                   takeTest?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page(testfaculty: faculty, testSemester: Semester[index],testYear: Year[index],)))):
+                  stddetails?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>studentDetails(faculty:faculty,Semester:Semester[index],Year:Year[index])))):
                   (Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignmentPage(faculty:faculty,Semester:Semester[index],Year:Year[index]))));
                  },
                  );
@@ -269,6 +277,7 @@ void showBottomSheetStudent(BuildContext context){
                   ),
                 ),
                 onTap: () {
+                  stddetails=true;
                   showBottomSheetFaculty(context);
                 },
               ),

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 
-class assignmentPage extends StatefulWidget {
+class studentDetails extends StatefulWidget {
   final String faculty;
   final String Semester;
   final String Year;
-  const assignmentPage(
+  const studentDetails(
       {required this.faculty, required this.Semester, required this.Year});
 
   @override
-  State<assignmentPage> createState() => _assignmentPageState();
+  State<studentDetails> createState() => _studentDetailsState();
 }
 
-class _assignmentPageState extends State<assignmentPage> {
+class _studentDetailsState extends State<studentDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: blueColor,
         title: Text(
-          "Assignment",
+          "Student Details",
           style: TextStyle(
             color: Colors.white,
           ),
