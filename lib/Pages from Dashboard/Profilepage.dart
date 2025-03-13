@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
 
 class profilePage extends StatefulWidget {
   const profilePage({super.key});
@@ -17,7 +18,7 @@ class _profilePageState extends State<profilePage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "View Profile",
+            !language?("View Profile"):("प्रोफाइल"),
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w900,
@@ -45,7 +46,7 @@ class _profilePageState extends State<profilePage> {
               height: 45,
               width: 150,
               child: TextButton.icon(onPressed: (){}, 
-              label: Text("Logout",
+              label: Text(!language?("LogOut"):("लगआउट"),
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 17,

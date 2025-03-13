@@ -164,7 +164,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                   color: blueColor,
                 ),
                 accountName: Text(
-                  "Mandeep Pokharel",
+                  !language?("Mandeep Pokharel"):("मन्दिप पोखरेल"),
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
@@ -193,7 +193,7 @@ class _DashboardpageState extends State<Dashboardpage> {
               ListTile(
                 leading: Icon(Icons.account_circle),
                 title: Text(
-                  'Profile',
+               !language?("Profile"):("प्रोफाइल"),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 onTap: () {},
@@ -201,7 +201,7 @@ class _DashboardpageState extends State<Dashboardpage> {
               ListTile(
                 leading: Icon(Icons.notifications),
                 title: Text(
-                  'Notification',
+                 !language?("Notification"):("सूचना"),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 onTap: () {},
@@ -209,7 +209,7 @@ class _DashboardpageState extends State<Dashboardpage> {
               ListTile(
                 leading: Icon(Icons.policy),
                 title: Text(
-                  'Policies',
+                  !language?("Policies"):("नीतिहरू"),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 onTap: () {},
@@ -220,7 +220,7 @@ class _DashboardpageState extends State<Dashboardpage> {
               ListTile(
                 leading: Icon(Icons.settings),
                 title: Text(
-                  'Settings',
+                 !language?("Setings"):("सेटिङहरू"),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 onTap: () {
@@ -230,7 +230,7 @@ class _DashboardpageState extends State<Dashboardpage> {
               ListTile(
                 leading: Icon(Icons.notifications),
                 title: Text(
-                  'LogOut',
+                   !language?("LogOut"):("लगआउट"),
                   style:
                       TextStyle(fontWeight: FontWeight.w500, color: Colors.red),
                 ),
@@ -242,7 +242,7 @@ class _DashboardpageState extends State<Dashboardpage> {
               ListTile(
                 leading: Icon(Icons.people),
                 title: Text(
-                  'About Us',
+                   !language?("About Us"):("हाम्रो बारेमा"),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 onTap: () {},
@@ -288,7 +288,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                     ),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.start,
                                       children: [
                                         Text(
                                          !language?("Mark Your Attendance"):("हाजिर गर्नुहोस्"),

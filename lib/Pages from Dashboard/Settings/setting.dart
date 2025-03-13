@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 
 bool language=false;
+bool darkMode=false;
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
 
@@ -92,7 +93,9 @@ class _SettingPageState extends State<SettingPage> {
                                     Text("Dark Mode"),
                                   ],
                                 ),
-                                onTap: (){},
+                                onTap: (){
+                                  darkMode=false;
+                                },
                               ),
                             ),
                            DropdownMenuItem(
@@ -105,7 +108,9 @@ class _SettingPageState extends State<SettingPage> {
                                     Text("Light Mode"),
                                   ],
                                 ),
-                                onTap: () {},
+                                onTap: () {
+                                  darkMode=true;
+                                },
                               ),
                             ),
                           ],
@@ -284,7 +289,7 @@ class _SettingPageState extends State<SettingPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  color: greyColor,
+                  color: !manage_accounts?(greyColor):(secBlueColor),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 13,vertical:16),
                     child: Row(
