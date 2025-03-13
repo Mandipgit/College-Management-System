@@ -223,7 +223,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>settingPage()));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>SettingPage()));
                 },
               ),
               ListTile(
