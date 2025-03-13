@@ -66,7 +66,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                   color: Colors.white,
                                 ),
                                 label: Text(
-                                  "Parents",
+                                  !language?("Parents"):("अभिभावक"),
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
@@ -83,7 +83,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                   color: Colors.white,
                                 ),
                                 label: Text(
-                                  "Teachers",
+                                  !language?("Teachers"):("शिक्षक"),
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
@@ -100,7 +100,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                   color: Colors.white,
                                 ),
                                 label: Text(
-                                  "Administrator",
+                                  !language?("Administration"):("प्रशासन"),
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
@@ -135,12 +135,13 @@ class _DashboardpageState extends State<Dashboardpage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         backgroundColor: greyColor,
         appBar: AppBar(
-          title: Text(
+          title: !language?(Text(
             "Teacher",
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
+            style: TextStyle(color: Colors.white),
+          )):(Text(
+            "शिक्षक",
+            style: TextStyle(color: Colors.white),
+          )),
           backgroundColor: blueColor,
           centerTitle: true,
           iconTheme: IconThemeData(color: Colors.white),
@@ -269,7 +270,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Hello Mandip",
+                        Text(!language?("Hello Mandip"):("नमस्ते मन्दिप"),
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
@@ -290,7 +291,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          "Mark Your Attendance",
+                                         !language?("Mark Your Attendance"):("हाजिर गर्नुहोस्"),
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w400,
@@ -320,7 +321,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(10),
                                       child: Text(
-                                        "Attendance Done",
+                                        !language?("Attendance Done"):("हाजिरी सकियो"),
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
@@ -379,7 +380,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                             // borderRadius: BorderRadius.only(topLeft:Radius.circular(50),topRight: Radius.circular(50))
                           ),
                           child: Text(
-                            "Explore Categories",
+                            !language?("Explore Categories"):("वर्गहरू छान्नुहोस्"),
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
@@ -413,7 +414,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                         ),
                                       ),
                                       Text(
-                                        "Assignment",
+                                        !language?("Assignment"):("असाइनमेन्ट"),
                                         style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
@@ -448,7 +449,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                           ),
                                         ),
                                         Text(
-                                          "Student",
+                                          !language?("Student"):("विद्यार्थी"),
                                           style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w500,
@@ -484,7 +485,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       ),
                                     ),
                                     Text(
-                                      "Publish Notice",
+                                      !language?("Publish Notice"):("सुचना प्रकाशन"),
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500,
@@ -513,7 +514,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       ),
                                     ),
                                     Text(
-                                      "Library",
+                                       !language?("Library"):("पुस्तकालय"),
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500,
@@ -546,7 +547,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       ),
                                     ),
                                     Text(
-                                      "Meeting",
+                                     !language?("Meeting"):("बैठक"),
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500,

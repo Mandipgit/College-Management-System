@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 
+bool language=false;
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
 
@@ -19,12 +20,15 @@ class _SettingPageState extends State<SettingPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
+          title: !language?(Text(
             "Setting",
             style: TextStyle(color: Colors.white),
-          ),
+          )):(Text(
+            "सेटिङ",
+            style: TextStyle(color: Colors.white),
+          )),
           centerTitle: true,
-          backgroundColor: blueColor, // Assuming `blueColor` is missing
+          backgroundColor: blueColor, 
           leading: IconButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(
@@ -52,10 +56,19 @@ class _SettingPageState extends State<SettingPage> {
                         children: [
                           const Icon(Icons.palette, color: Colors.black), 
                           const SizedBox(width: 10),
-                          const Text(
-                            'Theme',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                          ),
+                          !language?(Text(
+            "Theme",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )):(Text(
+            "विषयवस्तुको रङ",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )),
                         ],
                       ),
                         DropdownButtonHideUnderline(
@@ -117,10 +130,19 @@ class _SettingPageState extends State<SettingPage> {
                         children: [
                           const Icon(Icons.language, color: Colors.black), 
                           const SizedBox(width: 10),
-                          const Text(
-                            'Language',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                          ),
+                          !language?(Text(
+            "Language",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )):(Text(
+            "भाषा",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )),
                         ],
                       ),
                         DropdownButtonHideUnderline(
@@ -148,7 +170,11 @@ class _SettingPageState extends State<SettingPage> {
                                     Text("English"),
                                   ],
                                 ),
-                                onTap: (){},
+                                onTap: (){
+                                  setState(() {
+                                    language=false;
+                                  });
+                                },
                               ),
                             ),
                            DropdownMenuItem(
@@ -164,7 +190,11 @@ class _SettingPageState extends State<SettingPage> {
                                     Text("नेपाली"),
                                   ],
                                 ),
-                                onTap: () {},
+                                onTap: () {
+                                  setState(() {
+                                    language=true;
+                                  });
+                                },
                               ),
                             ),
                           ],
@@ -189,17 +219,26 @@ class _SettingPageState extends State<SettingPage> {
                         children: [
                           const Icon(Icons.notifications, color: Colors.black), 
                           const SizedBox(width: 10),
-                          const Text(
-                            'Notifiation',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                          ),
+                          !language?(Text(
+            "Notification",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )):(Text(
+            "सूचना",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )),
                         ],
                       ),
                         DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
                           value: dropDownval3, 
                           icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
-                          style: const TextStyle(color: Colors.black), // Ensure visibility
+                          style: const TextStyle(color: Colors.black), 
                           onChanged: (String? newValue) {
                             setState(() {
                               dropDownval3 = newValue!;
@@ -253,9 +292,19 @@ class _SettingPageState extends State<SettingPage> {
                       children: [
                         Icon(Icons.manage_accounts),
                         const SizedBox(width: 10,),
-                        Text("Manage Account",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                        )
+                        !language?(Text(
+            "Manage Account",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )):(Text(
+            "खाता व्यवस्थापन गर्नुहोस्",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )),
                       ],
                     ),
                   ),
@@ -283,9 +332,19 @@ class _SettingPageState extends State<SettingPage> {
                       children: [
                         Icon(Icons.people),
                         const SizedBox(width: 10,),
-                        Text("Change Username",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                        )
+                        !language?(Text(
+            "Change Username",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )):(Text(
+            "प्रयोगकर्ता नाम परिवर्तन गर्नुहोस्",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )),
                       ],
                     ),
                   ),
@@ -308,9 +367,19 @@ class _SettingPageState extends State<SettingPage> {
                       children: [
                         Icon(Icons.password),
                         const SizedBox(width: 10,),
-                        Text("Change Password",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                        )
+                        !language?(Text(
+            "Change Password",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )):(Text(
+            "पासवर्ड परिवर्तन गर्नुहोस्",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )),
                       ],
                     ),
                   ),
@@ -333,9 +402,19 @@ class _SettingPageState extends State<SettingPage> {
                       children: [
                         Icon(Icons.numbers),
                         const SizedBox(width: 10,),
-                        Text("Add or Remove Phone Number",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                        )
+                        !language?(Text(
+            "Add or Remove Phone Number",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )):(Text(
+            "फोन नम्बर थप्नुहोस् वा हटाउनुहोस्",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )),
                       ],
                     ),
                   ),
@@ -358,9 +437,19 @@ class _SettingPageState extends State<SettingPage> {
                       children: [
                         Icon(Icons.email),
                         const SizedBox(width: 10,),
-                        Text("Add or Remove Email",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                        )
+                        !language?(Text(
+            "Add or Remove Email",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )):(Text(
+            "ईमेल थप्नुहोस् वा हटाउनुहोस्",
+            style: TextStyle(color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            ),
+          )),
                       ],
                     ),
                   ),
@@ -370,8 +459,7 @@ class _SettingPageState extends State<SettingPage> {
                 },
               ),
               ],),
-           
-      ],
+           ],
           ),
         ),
       ),
