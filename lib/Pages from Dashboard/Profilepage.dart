@@ -93,7 +93,7 @@ class _profilePageState extends State<profilePage> {
                     Container(
                       height: 80,
                       width: double.maxFinite,
-                      color: secBlueColor, // Use secBlueColor if defined
+                      color: secBlueColor, 
                       child: Center(
                         child: Column(
                           children: [

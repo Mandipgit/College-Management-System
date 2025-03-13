@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/Bottomsheet.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profilepage.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
 import 'package:teachers/Pages%20from%20Dashboard/notificationPage.dart';
 import 'package:teachers/main.dart';
 
@@ -221,7 +222,9 @@ class _DashboardpageState extends State<Dashboardpage> {
                   'Settings',
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>settingPage()));
+                },
               ),
               ListTile(
                 leading: Icon(Icons.notifications),
