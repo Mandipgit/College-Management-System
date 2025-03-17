@@ -376,7 +376,6 @@ class _DashboardpageState extends State<Dashboardpage> {
                           width: 200,
                           decoration: BoxDecoration(
                             color: Color(0xFF5D7DAC),
-                           
                           ),
                           child: Text(
                             !language?("Explore Categories"):("वर्गहरू छान्नुहोस्"),
