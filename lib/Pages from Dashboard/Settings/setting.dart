@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
+import 'package:teachers/Theme/theme_provider.dart';
 
 bool language=false;
-bool darkMode=false;
+bool darkModeButton=false;
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
 
@@ -94,7 +96,10 @@ class _SettingPageState extends State<SettingPage> {
                                   ],
                                 ),
                                 onTap: (){
-                                  darkMode=false;
+                                  setState(() {
+                                    darkModeButton=false;
+                                  Provider.of<ThemeProvider>(context,listen: false).toggleTheme();
+                                  });
                                 },
                               ),
                             ),
@@ -109,7 +114,10 @@ class _SettingPageState extends State<SettingPage> {
                                   ],
                                 ),
                                 onTap: () {
-                                  darkMode=true;
+                                 setState(() {
+                                    darkModeButton=true;
+                                  Provider.of<ThemeProvider>(context,listen:false).toggleTheme();
+                                 });
                                 },
                               ),
                             ),

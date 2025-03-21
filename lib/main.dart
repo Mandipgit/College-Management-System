@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
+import 'package:teachers/Theme/theme_provider.dart';
 
 
 void main() {
@@ -8,7 +10,9 @@ void main() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp, 
   ]).then((_) {
-    runApp(MyApp());
+    runApp(ChangeNotifierProvider(create: (context)=>ThemeProvider(),
+    child: const MyApp(),
+    ));
   });
 }
 
@@ -20,6 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home:mainPage(),
+      theme: Provider.of<ThemeProvider>(context).themedata,
     );
   }
 }

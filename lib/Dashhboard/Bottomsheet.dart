@@ -151,7 +151,7 @@ void showBottomSheetAssignment(BuildContext context) {
                   height: 130,
                   width: 130,
                   decoration: BoxDecoration(
-                    color:greyColor,
+                    color:Color.fromARGB(255, 228, 224, 224),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
@@ -183,7 +183,7 @@ void showBottomSheetAssignment(BuildContext context) {
                   height: 130,
                   width: 130,
                   decoration: BoxDecoration(
-                    color:greyColor,
+                    color:Color.fromARGB(255, 228, 224, 224),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
@@ -232,7 +232,7 @@ void showBottomSheetStudent(BuildContext context){
                   height: 130,
                   width: 130,
                   decoration: BoxDecoration(
-                    color:greyColor,
+                    color:Color.fromARGB(255, 228, 224, 224),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
@@ -264,7 +264,7 @@ void showBottomSheetStudent(BuildContext context){
                   height: 130,
                   width: 130,
                   decoration: BoxDecoration(
-                    color:greyColor,
+                    color:Color.fromARGB(255, 228, 224, 224),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(

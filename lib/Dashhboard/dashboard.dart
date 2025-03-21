@@ -3,11 +3,15 @@ import 'package:teachers/Dashhboard/Bottomsheet.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profilepage.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
 import 'package:teachers/Pages%20from%20Dashboard/notificationPage.dart';
+import 'package:teachers/Theme/theme_provider.dart';
 import 'package:teachers/main.dart';
 
 Color blueColor = Color(0xFF274C77);
 Color greyColor = Color.fromARGB(255, 228, 224, 224);
 Color secBlueColor = Color(0xFF5D7DAC);
+Color primarygrey=Colors.grey.shade800;
+Color secgrey=Colors.grey.shade700;
+Color backgroundgrey=Colors.grey.shade900;
 void main() {
   runApp(MyApp());
 }
@@ -52,7 +56,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                   height: 150,
                   width: 180,
                   child: FloatingActionButton.extended(
-                      backgroundColor: blueColor,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
                       foregroundColor: Colors.white,
                       label: Column(
                         children: [
@@ -113,7 +117,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                 ),
                 const SizedBox(width: 10),
                 FloatingActionButton(
-                    backgroundColor: blueColor,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                     foregroundColor: Colors.white,
                     child: Icon(Icons.close),
                     onPressed: () {
@@ -132,7 +136,7 @@ class _DashboardpageState extends State<Dashboardpage> {
       child: Scaffold(
         floatingActionButton: buildChatButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        backgroundColor: greyColor,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           title: !language?(Text(
             "Teacher",
@@ -160,7 +164,7 @@ class _DashboardpageState extends State<Dashboardpage> {
             children: [
               UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
-                  color: blueColor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 accountName: Text(
                   !language?("Mandeep Pokharel"):("मन्दिप पोखरेल"),
@@ -256,7 +260,7 @@ class _DashboardpageState extends State<Dashboardpage> {
               height: 150,
               width: double.maxFinite,
               decoration: BoxDecoration(
-                color: blueColor,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
@@ -283,7 +287,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                     height: 40,
                                     width: 213,
                                     decoration: BoxDecoration(
-                                      color: blueColor,
+                                      color: Theme.of(context).colorScheme.primary,
                                     ),
                                     child: Row(
                                       mainAxisAlignment:
@@ -324,7 +328,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
-                                          color: blueColor,
+                                          color: Theme.of(context).colorScheme.primary,
                                         ),
                                       ),
                                     ),
@@ -364,7 +368,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50)),
-                  color: Color(0xFF5D7DAC),
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
                 child: SingleChildScrollView(
                   child: Column(
@@ -375,7 +379,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                           height: 45,
                           width: 200,
                           decoration: BoxDecoration(
-                            color: Color(0xFF5D7DAC),
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
                           child: Text(
                             !language?("Explore Categories"):("वर्गहरू छान्नुहोस्"),
@@ -398,7 +402,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                   height: 130,
                                   width: 130,
                                   decoration: BoxDecoration(
-                                    color: greyColor,
+                                    color: Color.fromARGB(255, 228, 224, 224),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Column(
@@ -416,6 +420,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                         style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
+                                          color: Colors.white,
                                         ),
                                       ),
                                     ],
@@ -433,7 +438,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                     height: 130,
                                     width: 130,
                                     decoration: BoxDecoration(
-                                      color: greyColor,
+                                      color: Color.fromARGB(255, 228, 224, 224),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Column(
@@ -470,7 +475,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                 height: 130,
                                 width: 130,
                                 decoration: BoxDecoration(
-                                  color: greyColor,
+                                  color: Color.fromARGB(255, 228, 224, 224),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Column(
@@ -499,7 +504,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                 height: 130,
                                 width: 130,
                                 decoration: BoxDecoration(
-                                  color: greyColor,
+                                  color: Color.fromARGB(255, 228, 224, 224),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Column(
@@ -532,7 +537,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                 height: 130,
                                 width: 130,
                                 decoration: BoxDecoration(
-                                  color: greyColor,
+                                  color: Color.fromARGB(255, 228, 224, 224),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Column(
@@ -561,7 +566,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                 height: 130,
                                 width: 130,
                                 decoration: BoxDecoration(
-                                  color: greyColor,
+                                  color: Color.fromARGB(255, 228, 224, 224),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
