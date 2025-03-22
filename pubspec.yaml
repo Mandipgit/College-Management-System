@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   popover: ^0.3.1
   provider:
+  percent_indicator: ^4.2.4
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,7 @@ flutter:
       - Assets/test.png
       - Assets/attendance.png
       - Assets/student_details.png
+      - Assets/collegeAdministrator.png
 
   #   - images/a_dot_ham.jpeg
 

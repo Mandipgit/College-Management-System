@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:teachers/Dashhboard/Bottomsheet.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profilepage.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
@@ -261,7 +262,7 @@ class _DashboardpageState extends State<Dashboardpage> {
           Padding(
             padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
             child: Container(
-              height: 150,
+              height: 180,
               width: double.maxFinite,
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.primary,
@@ -283,7 +284,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                               fontWeight: FontWeight.w600,
                               fontSize: 20,
                             )),
-                        const SizedBox(height: 5),
+                        // const SizedBox(height: 5),
                         Row(
                           children: [
                             !iconChecked
@@ -301,7 +302,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                          !language?("Mark Your Attendance"):("हाजिर गर्नुहोस्"),
                                           style: TextStyle(
                                             color: Colors.white,
-                                            fontWeight: FontWeight.w400,
+                                            fontWeight: FontWeight.w500,
                                             fontSize: 16,
                                           ),
                                         ),
@@ -337,8 +338,78 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       ),
                                     ),
                                   ),
-                          ],
-                        )
+                                 ],
+                        ),
+                         const SizedBox(height: 5,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text("Present Days",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                      ),
+                                      const SizedBox(height: 3,),
+                                      CircularPercentIndicator(
+                                        animation: true,
+                                        animationDuration: 1000,
+                                        radius: 30,
+                                        lineWidth: 7,
+                                        progressColor: Colors.green,
+                                        percent: 0.6,
+                                        backgroundColor: mode?(Colors.white):(secBlueColor),
+                                        circularStrokeCap: CircularStrokeCap.round,
+                                        center: Text("60%",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w800
+                                        ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(width: 35,),
+                                  Column(
+                                    children: [
+                                       Text("Leave Days",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w800,
+                                        
+                                      ),
+                                      ),
+                                      const SizedBox(height: 3,),
+                                      CircularPercentIndicator(
+                                        animation: true,
+                                        animationDuration: 1000,
+                                        radius: 30,
+                                        lineWidth: 7,
+                                        progressColor: Colors.red,
+                                        percent: 0.2,
+                                        backgroundColor: mode?(Colors.white):(secBlueColor),
+                                        circularStrokeCap: CircularStrokeCap.round,
+                                        center: Text("20%",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w800
+                                        ),
+                                        ),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
                       ],
                     ),
                     const SizedBox(width: 30),
@@ -572,12 +643,31 @@ class _DashboardpageState extends State<Dashboardpage> {
                               const SizedBox(
                                 width: 40,
                               ),
-                              Container(
+                               Container(
                                 height: 130,
                                 width: 130,
                                 decoration: BoxDecoration(
                                   color: Color.fromARGB(255, 228, 224, 224),
                                   borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Image.asset(
+                                        'Assets/collegeAdministrator.png',
+                                        height: 80,
+                                      ),
+                                    ),
+                                    Text(
+                                     !language?("Admin"):("प्रशासन"),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
                             ],
