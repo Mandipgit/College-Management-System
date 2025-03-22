@@ -462,7 +462,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                             !language?("Explore Categories"):("वर्गहरू छान्नुहोस्"),
                             style: TextStyle(
                               color: Colors.white,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w900,
                               fontSize: 20,
                             ),
                           ),
