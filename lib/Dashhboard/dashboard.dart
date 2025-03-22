@@ -9,9 +9,13 @@ import 'package:teachers/main.dart';
 Color blueColor = Color(0xFF274C77);
 Color greyColor = Color.fromARGB(255, 228, 224, 224);
 Color secBlueColor = Color(0xFF5D7DAC);
-Color primarygrey=Colors.grey.shade800;
-Color secgrey=Colors.grey.shade700;
-Color backgroundgrey=Colors.grey.shade900;
+Color primarygrey=Colors.grey.shade900;
+Color secgrey=Colors.grey.shade900;
+Color backgroundgrey=Colors.black;
+Color floatingActionButtondark= Colors.black;
+Color floatingActionButtonlight= Color(0xFF274C77);
+Color dividerDark=Colors.white;
+Color dividerLight=Colors.black;
 void main() {
   runApp(MyApp());
 }
@@ -35,7 +39,7 @@ class _DashboardpageState extends State<Dashboardpage> {
               bottom: 50,
             ),
             child: FloatingActionButton(
-                backgroundColor: blueColor,
+                backgroundColor: Theme.of(context).colorScheme.tertiary,
                 child: Icon(
                   (Icons.chat),
                   color: Colors.white,
@@ -56,7 +60,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                   height: 150,
                   width: 180,
                   child: FloatingActionButton.extended(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      backgroundColor: Theme.of(context).colorScheme.tertiary,
                       foregroundColor: Colors.white,
                       label: Column(
                         children: [
@@ -145,7 +149,7 @@ class _DashboardpageState extends State<Dashboardpage> {
             "शिक्षक",
             style: TextStyle(color: Colors.white),
           )),
-          backgroundColor: blueColor,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           centerTitle: true,
           iconTheme: IconThemeData(color: Colors.white),
           actions: [
@@ -160,11 +164,12 @@ class _DashboardpageState extends State<Dashboardpage> {
           ],
         ),
         drawer: Drawer(
+          backgroundColor:mode?(primarygrey):(greyColor) ,
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
+                  color: mode?(Colors.black):(blueColor),
                 ),
                 accountName: Text(
                   !language?("Mandeep Pokharel"):("मन्दिप पोखरेल"),
@@ -193,7 +198,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                   ),
                 ),
               ),
-              ListTile(
+             ListTile(
                 leading: Icon(Icons.account_circle),
                 title: Text(
                !language?("Profile"):("प्रोफाइल"),
@@ -217,8 +222,8 @@ class _DashboardpageState extends State<Dashboardpage> {
                 ),
                 onTap: () {},
               ),
-              const Divider(
-                color: Colors.black,
+              Divider(
+                color: Theme.of(context).colorScheme.outline,
               ),
               ListTile(
                 leading: Icon(Icons.settings),
@@ -239,8 +244,8 @@ class _DashboardpageState extends State<Dashboardpage> {
                 ),
                 onTap: () {},
               ),
-              const Divider(
-                color: Colors.black,
+              Divider(
+                color: Theme.of(context).colorScheme.outline,
               ),
               ListTile(
                 leading: Icon(Icons.people),
@@ -250,10 +255,9 @@ class _DashboardpageState extends State<Dashboardpage> {
                 ),
                 onTap: () {},
               )
-            ],
-          ),
-        ),
-        body: Column(children: [
+            ]),
+              ),
+          body: Column(children: [
           Padding(
             padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
             child: Container(
@@ -420,7 +424,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                         style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
-                                          color: Colors.white,
+                                          color: Colors.black,
                                         ),
                                       ),
                                     ],
@@ -456,6 +460,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                           style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w500,
+                                            color: Colors.black,
                                           ),
                                         )
                                       ],
@@ -492,6 +497,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500,
+                                        color: Colors.black
                                       ),
                                     )
                                   ],
@@ -521,6 +527,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500,
+                                        color: Colors.black
                                       ),
                                     )
                                   ],
@@ -554,6 +561,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500,
+                                        color: Colors.black
                                       ),
                                     )
                                   ],

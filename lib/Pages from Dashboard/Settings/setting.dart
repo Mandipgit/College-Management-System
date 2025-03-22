@@ -31,7 +31,7 @@ class _SettingPageState extends State<SettingPage> {
             style: TextStyle(color: Colors.white),
           )),
           centerTitle: true,
-          backgroundColor: blueColor, 
+          backgroundColor: Theme.of(context).colorScheme.primary, 
           leading: IconButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(
@@ -49,7 +49,7 @@ class _SettingPageState extends State<SettingPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                color:  greyColor,
+                color:  Theme.of(context).colorScheme.secondary,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
                   child: Row(
@@ -57,73 +57,33 @@ class _SettingPageState extends State<SettingPage> {
                     children: [
                      Row(
                         children: [
-                          const Icon(Icons.palette, color: Colors.black), 
+                          const Icon(Icons.palette, color: Colors.white), 
                           const SizedBox(width: 10),
                           !language?(Text(
             "Theme",
-            style: TextStyle(color: Colors.black,
+            style: TextStyle(color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             ),
           )):(Text(
             "विषयवस्तुको रङ",
-            style: TextStyle(color: Colors.black,
+            style: TextStyle(color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             ),
           )),
                         ],
                       ),
-                        DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                          value: dropDownval1, 
-                          icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
-                          style: const TextStyle(color: Colors.black), // Ensure visibility
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              dropDownval1 = newValue!;
-                            });
-                          },
-                          items: [
-                            DropdownMenuItem(
-                              value: "Dark Mode",
-                              child: GestureDetector(
-                                child: Row(
-                                  children: const [
-                                    Icon(Icons.dark_mode, color: Colors.black),
-                                    SizedBox(width: 10),
-                                    Text("Dark Mode"),
-                                  ],
-                                ),
-                                onTap: (){
-                                  setState(() {
-                                    darkModeButton=false;
-                                  Provider.of<ThemeProvider>(context,listen: false).toggleTheme();
-                                  });
-                                },
-                              ),
-                            ),
-                           DropdownMenuItem(
-                              value: "Light Mode",
-                              child: GestureDetector(
-                                child: Row(
-                                  children: const [
-                                    Icon(Icons.light_mode, color: Colors.black),
-                                    SizedBox(width: 10),
-                                    Text("Light Mode"),
-                                  ],
-                                ),
-                                onTap: () {
-                                 setState(() {
-                                    darkModeButton=true;
-                                  Provider.of<ThemeProvider>(context,listen:false).toggleTheme();
-                                 });
-                                },
-                              ),
-                            ),
-                          ],
-                                                ),
+                        TextButton(onPressed: (){
+                        setState(() {
+                           Provider.of<ThemeProvider>(context,listen:false).toggleTheme();
+                        });    
+                        }, 
+                        child:Text("Change",
+                        style: TextStyle(
+                          color:mode?(Colors.white):(Colors.black) 
                         ),
+                        ))
                     ],
                   ),
                 ),

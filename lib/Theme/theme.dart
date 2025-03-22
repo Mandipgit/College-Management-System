@@ -7,6 +7,9 @@ colorScheme: ColorScheme.light(
 surface: greyColor,
 primary: blueColor,
 secondary:  secBlueColor,
+tertiary: floatingActionButtonlight,
+outline: dividerLight,
+
 ),
 );
 ThemeData darkMode=ThemeData(
@@ -15,5 +18,7 @@ ThemeData darkMode=ThemeData(
     surface: backgroundgrey,
     primary: primarygrey,
     secondary: secgrey,
+    tertiary: floatingActionButtondark,
+    outline: dividerDark,
   ),
 );
