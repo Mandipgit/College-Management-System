@@ -17,7 +17,7 @@ class _attendanceState extends State<attendance> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: blueColor,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(
           "Attendance",
           style: TextStyle(
@@ -44,7 +44,7 @@ class _attendanceState extends State<attendance> {
               width: double.maxFinite,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: secBlueColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               child: Center(
                 child: Text(

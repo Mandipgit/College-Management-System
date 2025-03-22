@@ -79,11 +79,12 @@ class _SettingPageState extends State<SettingPage> {
                            Provider.of<ThemeProvider>(context,listen:false).toggleTheme();
                         });    
                         }, 
-                        child:Text("Change",
-                        style: TextStyle(
-                          color:mode?(Colors.white):(Colors.black) 
-                        ),
-                        ))
+                        child: Text("Change",
+                          style: TextStyle(
+                            color:mode?(Colors.blueGrey):(Colors.white) 
+                          ),
+                          ),
+                        )
                     ],
                   ),
                 ),
@@ -93,7 +94,7 @@ class _SettingPageState extends State<SettingPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                color:  greyColor,
+                color:  Theme.of(context).colorScheme.secondary,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
                   child: Row(
@@ -101,17 +102,17 @@ class _SettingPageState extends State<SettingPage> {
                     children: [
                      Row(
                         children: [
-                          const Icon(Icons.language, color: Colors.black), 
+                          const Icon(Icons.language, color: Colors.white), 
                           const SizedBox(width: 10),
                           !language?(Text(
             "Language",
-            style: TextStyle(color: Colors.black,
+            style: TextStyle(color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             ),
           )):(Text(
             "भाषा",
-            style: TextStyle(color: Colors.black,
+            style: TextStyle(color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             ),
@@ -120,9 +121,11 @@ class _SettingPageState extends State<SettingPage> {
                       ),
                         DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
+                            borderRadius: BorderRadius.circular(10),
+                           dropdownColor: Theme.of(context).colorScheme.secondary,
                           value: dropDownval2, 
-                          icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
-                          style: const TextStyle(color: Colors.black), 
+                          icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
+                          style: const TextStyle(color: Colors.white), 
                           onChanged: (String? newValue) {
                             setState(() {
                               dropDownval2 = newValue!;
@@ -133,14 +136,19 @@ class _SettingPageState extends State<SettingPage> {
                               value: "English",
                               child: GestureDetector(
                                 child: Row(
-                                  children: const [
+                                  children:  [
                                    Text("EN",
                                    style:TextStyle(
                                     fontWeight: FontWeight.w900,
+                                    color: Colors.white,
                                    )
                                    ),
                                     SizedBox(width: 10),
-                                    Text("English"),
+                                    Text("English",
+                                    style: TextStyle(
+                                      color:  Colors.white,
+                                    ),
+                                    ),
                                   ],
                                 ),
                                 onTap: (){
@@ -154,13 +162,18 @@ class _SettingPageState extends State<SettingPage> {
                               value: "नेपाली",
                               child: GestureDetector(
                                 child: Row(
-                                  children: const [
+                                  children:  [
                                     Text("NP",
                                     style: TextStyle(
-                                      fontWeight: FontWeight.w900
+                                      fontWeight: FontWeight.w900,
+                                     color: Colors.white,
                                     ),),
                                     SizedBox(width: 10),
-                                    Text("नेपाली"),
+                                    Text("नेपाली",
+                                    style: TextStyle(
+                                     color:Colors.white,
+                                    ),
+                                    ),
                                   ],
                                 ),
                                 onTap: () {
@@ -182,7 +195,7 @@ class _SettingPageState extends State<SettingPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                color:  greyColor,
+                color:  Theme.of(context).colorScheme.secondary,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
                   child: Row(
@@ -190,17 +203,17 @@ class _SettingPageState extends State<SettingPage> {
                     children: [
                      Row(
                         children: [
-                          const Icon(Icons.notifications, color: Colors.black), 
+                          const Icon(Icons.notifications, color: Colors.white), 
                           const SizedBox(width: 10),
                           !language?(Text(
             "Notification",
-            style: TextStyle(color: Colors.black,
+            style: TextStyle(color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             ),
           )):(Text(
             "सूचना",
-            style: TextStyle(color: Colors.black,
+            style: TextStyle(color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             ),
@@ -209,9 +222,11 @@ class _SettingPageState extends State<SettingPage> {
                       ),
                         DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
+                            dropdownColor: Theme.of(context).colorScheme.secondary,
+                            borderRadius: BorderRadius.circular(10),
                           value: dropDownval3, 
-                          icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
-                          style: const TextStyle(color: Colors.black), 
+                          icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
+                          style: const TextStyle(color: Colors.white), 
                           onChanged: (String? newValue) {
                             setState(() {
                               dropDownval3 = newValue!;
@@ -223,7 +238,7 @@ class _SettingPageState extends State<SettingPage> {
                               child: GestureDetector(
                                 child: Row(
                                   children: const [
-                                    Icon(Icons.lightbulb, color: Colors.black),
+                                    Icon(Icons.lightbulb, color: Colors.white),
                                     SizedBox(width: 10),
                                     Text("ON"),
                                   ],
@@ -236,7 +251,7 @@ class _SettingPageState extends State<SettingPage> {
                               child: GestureDetector(
                                 child: Row(
                                   children: const [
-                                    Icon(Icons.highlight_off, color: Colors.black),
+                                    Icon(Icons.highlight_off, color: Colors.white),
                                     SizedBox(width: 10),
                                     Text("OFF"),
                                   ],
@@ -257,23 +272,25 @@ class _SettingPageState extends State<SettingPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  color: !manage_accounts?(greyColor):(secBlueColor),
+                  color: Theme.of(context).colorScheme.secondary,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 13,vertical:16),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(Icons.manage_accounts),
+                        Icon(Icons.manage_accounts,
+                        color: Colors.white,
+                        ),
                         const SizedBox(width: 10,),
                         !language?(Text(
             "Manage Account",
-            style: TextStyle(color: Colors.black,
+            style: TextStyle(color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             ),
           )):(Text(
             "खाता व्यवस्थापन गर्नुहोस्",
-            style: TextStyle(color: Colors.black,
+            style: TextStyle(color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.w500,
             ),
@@ -303,7 +320,7 @@ class _SettingPageState extends State<SettingPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(Icons.people),
+                        Icon(Icons.people,color: Colors.black,),
                         const SizedBox(width: 10,),
                         !language?(Text(
             "Change Username",
@@ -338,7 +355,7 @@ class _SettingPageState extends State<SettingPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(Icons.password),
+                        Icon(Icons.password,color: Colors.black,),
                         const SizedBox(width: 10,),
                         !language?(Text(
             "Change Password",
@@ -373,7 +390,7 @@ class _SettingPageState extends State<SettingPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(Icons.numbers),
+                        Icon(Icons.numbers,color: Colors.black,),
                         const SizedBox(width: 10,),
                         !language?(Text(
             "Add or Remove Phone Number",
@@ -408,7 +425,7 @@ class _SettingPageState extends State<SettingPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(Icons.email),
+                        Icon(Icons.email,color: Colors.black,),
                         const SizedBox(width: 10,),
                         !language?(Text(
             "Add or Remove Email",

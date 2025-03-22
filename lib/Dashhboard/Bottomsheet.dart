@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/assignment.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/test.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Student/attendance.dart';
@@ -17,7 +16,7 @@ showBottomSheetFaculty(BuildContext context){
     return Container(
       height: MediaQuery.of(context).size.height*0.43,
       decoration: BoxDecoration(
-        color: secBlueColor,
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
       ),
       child: Padding(
@@ -51,7 +50,7 @@ showBottomSheetSemester(BuildContext context,String faculty){
     return Container(
       height: MediaQuery.of(context).size.height*0.52,
       decoration: BoxDecoration(
-        color: secBlueColor,
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
       ),
       child: Padding(
@@ -105,7 +104,7 @@ showBottomSheetYear(BuildContext context,String faculty){
     return Container(
       height: MediaQuery.of(context).size.height*0.3,
       decoration: BoxDecoration(
-        color: secBlueColor,
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
       ),
       child: Padding(
@@ -140,7 +139,7 @@ void showBottomSheetAssignment(BuildContext context) {
           height: MediaQuery.of(context).size.height*0.25,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
-            color: secBlueColor,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -168,6 +167,7 @@ void showBottomSheetAssignment(BuildContext context) {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
+                        color: Colors.black
                       ),)
                     ],
                   ),
@@ -200,6 +200,7 @@ void showBottomSheetAssignment(BuildContext context) {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
+                        color: Colors.black
                       ),
                       ),
                     ],
@@ -220,7 +221,7 @@ void showBottomSheetStudent(BuildContext context){
     return Container(
       height: MediaQuery.of(context).size.height*0.25,
       decoration: BoxDecoration(
-        color: secBlueColor,
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.only( topLeft: Radius.circular(20),  topRight: Radius.circular(20)),
       ),
        child: Row(
@@ -249,6 +250,7 @@ void showBottomSheetStudent(BuildContext context){
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
+                        color: Colors.black
                       ),)
                     ],
                   ),
@@ -281,6 +283,7 @@ void showBottomSheetStudent(BuildContext context){
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
+                        color: Colors.black
                       ),
                       ),
                     ],

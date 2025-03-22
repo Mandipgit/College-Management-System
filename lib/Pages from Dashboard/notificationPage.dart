@@ -14,7 +14,7 @@ class NotificationpageState extends State<Notificationpage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: blueColor,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           title: Text('Notification Page',
           style: TextStyle(
             color: Colors.white,

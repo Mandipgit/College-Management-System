@@ -25,7 +25,7 @@ class _profilePageState extends State<profilePage> {
             ),
           ),
           centerTitle: true,
-          backgroundColor: secBlueColor, 
+          backgroundColor: Theme.of(context).colorScheme.primary, 
           leading: IconButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(
@@ -36,28 +36,38 @@ class _profilePageState extends State<profilePage> {
             color: Colors.white,
           ),
           actions: [
-           PopupMenuButton(
-            icon: Icon(Icons.more_vert,
-            color: Colors.white,
+           PopupMenuTheme(
+            data: PopupMenuThemeData(
+              color: Theme.of(context).colorScheme.secondary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)
+              )
+              
             ),
-            itemBuilder: (context)=>[
-            PopupMenuItem(child: 
-            Container(
-              height: 45,
-              width: 150,
-              child: TextButton.icon(onPressed: (){}, 
-              label: Text(!language?("LogOut"):("लगआउट"),
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 17,
-                fontWeight: FontWeight.w500,
+             child: PopupMenuButton(
+              icon: Icon(Icons.more_vert,
+              color: Colors.white,
               ),
-              ),
-              icon: Icon(Icons.logout),
-              ),
-            )
-            )
-           ])
+              itemBuilder: (context)=>[
+              PopupMenuItem(child: 
+             TextButton.icon(onPressed: (){},
+              
+                label: Text(!language?("LogOut"):("लगआउट"),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                ),
+                ),
+                style: TextButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                ),
+                icon: Icon(Icons.logout,color: Colors.white,),
+                ),
+              )
+              
+             ]),
+           )
           ],
         ),
         body: Column(
@@ -66,7 +76,7 @@ class _profilePageState extends State<profilePage> {
               height: MediaQuery.of(context).size.height * 0.30,
               width: double.maxFinite,
               decoration: BoxDecoration(
-                color: secBlueColor, // Use secBlueColor if defined
+                color: Theme.of(context).colorScheme.primary, 
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(30),
                   bottomLeft: Radius.circular(30),
@@ -94,7 +104,7 @@ class _profilePageState extends State<profilePage> {
                     Container(
                       height: 80,
                       width: double.maxFinite,
-                      color: secBlueColor, 
+                      color: Theme.of(context).colorScheme.primary, 
                       child: Center(
                         child: Column(
                           children: [

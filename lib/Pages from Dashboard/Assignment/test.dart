@@ -17,7 +17,7 @@ class _test_PageState extends State<test_Page> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: blueColor,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           title: Text("Test",
           style: TextStyle(
             color: Colors.white,
@@ -39,7 +39,7 @@ class _test_PageState extends State<test_Page> {
               width: double.maxFinite,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: secBlueColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               child: Center(
                 child: Text((widget.testfaculty=="BSc.CSIT"||widget.testfaculty=="BIT")?

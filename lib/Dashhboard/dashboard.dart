@@ -121,7 +121,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                 ),
                 const SizedBox(width: 10),
                 FloatingActionButton(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    backgroundColor: Theme.of(context).colorScheme.surface,
                     foregroundColor: Colors.white,
                     child: Icon(Icons.close),
                     onPressed: () {
@@ -164,12 +164,12 @@ class _DashboardpageState extends State<Dashboardpage> {
           ],
         ),
         drawer: Drawer(
-          backgroundColor:mode?(primarygrey):(greyColor) ,
+          backgroundColor:mode?(Colors.black):(greyColor) ,
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
-                  color: mode?(Colors.black):(blueColor),
+                  color: mode?(Colors.grey.shade900):(blueColor),
                 ),
                 accountName: Text(
                   !language?("Mandeep Pokharel"):("मन्दिप पोखरेल"),
@@ -376,12 +376,14 @@ class _DashboardpageState extends State<Dashboardpage> {
                 ),
                 child: SingleChildScrollView(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 8.0, left: 20),
+                        padding: EdgeInsets.only(top: 8.0),
                         child: Container(
                           height: 45,
-                          width: 200,
+                          width: !language?(175):(130),
                           decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.secondary,
                           ),
