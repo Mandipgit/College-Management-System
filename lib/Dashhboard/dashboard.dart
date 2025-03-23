@@ -377,7 +377,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                                     ],
                                   ),
                                   const SizedBox(width: 35,),
-                                  Column(
+                                Column(
                                     children: [
                                        Text("Leave Days",
                                       style: TextStyle(
