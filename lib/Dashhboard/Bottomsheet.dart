@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/assignment.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/test.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Chat/Parents.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Student/attendance.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Student/studentdetails.dart';
 
@@ -11,6 +12,7 @@ bool takeTest=false;
 bool stddetails=false;
 bool stdattenndance=false;
 bool assignment=false;
+bool parentschat=false;
 showBottomSheetFaculty(BuildContext context){
   showModalBottomSheet(context: context, builder: (context){
     return Container(
@@ -85,6 +87,11 @@ showBottomSheetSemester(BuildContext context,String faculty){
                           faculty: faculty,
                           Semester: Semester[index],
                           Year: year,
+                        ))):parentschat? Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => parentsChat(
+                          faculty: faculty,
+                          Semester: Semester[index],
+                          Year: year,
                         )))
                     : Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => assignmentPage(
@@ -122,6 +129,7 @@ showBottomSheetYear(BuildContext context,String faculty){
                   takeTest?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>test_Page(testfaculty: faculty, testSemester: Semester[index],testYear: Year[index],)))):
                   stddetails?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>studentDetails(faculty:faculty,Semester:Semester[index],Year:Year[index])))):
                   stdattenndance?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>attendance(faculty:faculty,Semester:Semester[index],Year:Year[index])))):
+                  parentschat?(Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>parentsChat(faculty:faculty,Semester:Semester[index],Year:Year[index])))):
                   (Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>assignmentPage(faculty:faculty,Semester:Semester[index],Year:Year[index]))));
                  },
                  );

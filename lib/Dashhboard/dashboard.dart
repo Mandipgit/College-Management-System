@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:teachers/Dashhboard/Bottomsheet.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Chat/Teachers.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/publishNotice.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profilepage.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
 import 'package:teachers/Pages%20from%20Dashboard/notificationPage.dart';
@@ -69,6 +71,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                             width: 180,
                             child: TextButton.icon(
                                 onPressed: () {
+                                  parentschat=true;
                                   showBottomSheetFaculty(context);
                                 },
                                 icon: Icon(
@@ -88,7 +91,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                             width: 180,
                             child: TextButton.icon(
                                 onPressed: () {
-                                  
+                                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>teacherChat()));
                                 },
                                 icon: Icon(
                                   Icons.school,
@@ -563,32 +566,37 @@ class _DashboardpageState extends State<Dashboardpage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Container(
-                                height: 130,
-                                width: 130,
-                                decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 228, 224, 224),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 8.0),
-                                      child: Image.asset(
-                                        'Assets/publishnotice.png',
-                                        height: 80,
+                              GestureDetector(
+                                child: Container(
+                                  height: 130,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 228, 224, 224),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 8.0),
+                                        child: Image.asset(
+                                          'Assets/publishnotice.png',
+                                          height: 80,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      !language?("Publish Notice"):("सुचना प्रकाशन"),
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.black
-                                      ),
-                                    )
-                                  ],
+                                      Text(
+                                        !language?("Publish Notice"):("सुचना प्रकाशन"),
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
+                                onTap: () {
+                                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>publishNotice()));
+                                },
                               ),
                               const SizedBox(
                                 width: 40,
