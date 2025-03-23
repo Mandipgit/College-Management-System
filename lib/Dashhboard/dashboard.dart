@@ -68,7 +68,9 @@ class _DashboardpageState extends State<Dashboardpage> {
                           SizedBox(
                             width: 180,
                             child: TextButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  showBottomSheetFaculty(context);
+                                },
                                 icon: Icon(
                                   Icons.family_restroom,
                                   color: Colors.white,
@@ -85,7 +87,9 @@ class _DashboardpageState extends State<Dashboardpage> {
                           SizedBox(
                             width: 180,
                             child: TextButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  
+                                },
                                 icon: Icon(
                                   Icons.school,
                                   color: Colors.white,
@@ -122,7 +126,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                 ),
                 const SizedBox(width: 10),
                 FloatingActionButton(
-                    backgroundColor: Theme.of(context).colorScheme.surface,
+                    backgroundColor: Theme.of(context).colorScheme.tertiary,
                     foregroundColor: Colors.white,
                     child: Icon(Icons.close),
                     onPressed: () {
@@ -145,10 +149,14 @@ class _DashboardpageState extends State<Dashboardpage> {
         appBar: AppBar(
           title: !language?(Text(
             "Teacher",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white,
+            fontWeight: FontWeight.w800,
+            ),
           )):(Text(
             "शिक्षक",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white,
+            fontWeight: FontWeight.w800,
+            ),
           )),
           backgroundColor: Theme.of(context).colorScheme.primary,
           centerTitle: true,
@@ -417,16 +425,22 @@ class _DashboardpageState extends State<Dashboardpage> {
                       padding: const EdgeInsets.only(top: 15),
                       child: CircleAvatar(
                         radius: 50,
-                        child: SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: ClipOval(
-                            child: Image.asset(
-                              'Assets/sleepyDiet.jpg',
-                              fit: BoxFit.cover,
+                        child: GestureDetector(
+                          child: SizedBox(
+                            width: 100,
+                            height: 100,
+                            child: ClipOval(
+                              child: Image.asset(
+                                'Assets/sleepyDiet.jpg',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
+                          onTap: (){
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>profilePage()));
+                          },
                         ),
+                        
                       ),
                     ),
                   ],
@@ -463,7 +477,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,
-                              fontSize: 20,
+                              fontSize: 19,
                             ),
                           ),
                         ),
