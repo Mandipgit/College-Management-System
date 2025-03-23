@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:teachers/Dashhboard/Bottomsheet.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Theme/theme_provider.dart';
 String selectfaculty="BSc.CSIT";
-String selectSemester="1stSemester";
+String selectSemester="1st Sem";
 String selectYear="1st Year";
 final List<String> faculties = [
   'BSc.CSIT',
@@ -12,9 +13,10 @@ final List<String> faculties = [
   'Physics',
   'Geology'
 ];
-final List <String>Semester=['1stSemester','2ndSemester','3rdSemester','4thSemester','5thSemester','6thSemester','7thSemester','8thSemester'];
+final List <String>Semester=['1st Sem','2nd Sem','3rd Sem','4th Sem','5th Sem','6th Sem','7th Sem','8th Sem'];
 final List <String>Year=['1st Year','2nd Year','3rd Year','4th Year'];
 final List <String>Selecteditems=[];
+
 
 class publishNotice extends StatefulWidget {
   
@@ -26,7 +28,15 @@ class publishNotice extends StatefulWidget {
 }
 
 class _publishNoticeState extends State<publishNotice> {
-  dropDownSemester(BuildContext context,selectSemester){
+  void addSelecteditems(){
+    setState(() {
+      String selectedText=(selectfaculty=="BSc.CSIT")?("$selectfaculty($selectSemester)"):(selectfaculty=="BIT")?("$selectfaculty($selectSemester)"):("$selectfaculty($selectYear)");
+     if(!Selecteditems.contains(selectedText)){
+       Selecteditems.add(selectedText);
+     }
+    });
+  }
+  dropDownSemester(BuildContext context){
 return  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -36,7 +46,7 @@ return  Column(
                 "Semester",
                 style: TextStyle(
                   color: mode ? (Colors.white) : (Colors.black),
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w900,
                   fontSize: 16,
                 ),
               ),
@@ -66,15 +76,15 @@ return  Column(
                             color: Theme.of(context).colorScheme.outline,
                             ),
                           ),
-                          onChanged: (String? newValue1) {
+                          onChanged: (String? newValue) {
                           setState(() {
-                            selectSemester=newValue1!;
+                            selectSemester=newValue!;
                           });
                               },
-                          items: Semester.map((String Semester) {
+                          items: Semester.map((String semester) {
                             return DropdownMenuItem<String>(
-                              value: Semester,
-                              child: Text(Semester,
+                              value: semester,
+                              child: Text(semester,
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.outline
                               ),
@@ -89,7 +99,7 @@ return  Column(
           ],
         );
 }
-dropDownYear(BuildContext context,selectYear){
+dropDownYear(BuildContext context){
 return  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -99,7 +109,7 @@ return  Column(
                 "Year",
                 style: TextStyle(
                   color: mode ? (Colors.white) : (Colors.black),
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w900,
                   fontSize: 16,
                 ),
               ),
@@ -129,9 +139,9 @@ return  Column(
                             color: Theme.of(context).colorScheme.outline,
                             ),
                           ),
-                          onChanged: (String? newValue2) {
+                          onChanged: (String? newValue) {
                           setState(() {
-                            selectYear=newValue2!;
+                            selectYear=newValue!;
                           });
                               },
                           items: Year.map((String Year) {
@@ -152,10 +162,28 @@ return  Column(
           ],
         );
 }
+Widget buildPostButton(){
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 30),
+    child: FloatingActionButton(
+      shape:RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(100)
+      ) ,
+      onPressed: (){
+      setState(() {
+        showBottomSheetPublishNotice(context);
+      });},
+      child: Icon(Icons.add,color: Colors.white,),
+      ),
+  );
+}
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: buildPostButton(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           title: Text(
@@ -176,80 +204,167 @@ return  Column(
                 color: Colors.white,
               )),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 15, right: 15, left: 15),
-              child: Text(
-                "Faculty",
-                style: TextStyle(
-                  color: mode ? (Colors.white) : (Colors.black),
-                  fontWeight: FontWeight.w800,
-                  fontSize: 16,
+        body: Padding(
+          padding: const EdgeInsets.only(left:4.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: Padding(
+                    padding: const EdgeInsets.only(top: 8.0,right: 8.0),
+                    child: Container(
+                      height: 40,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      child: TextButton(onPressed: (){
+                        setState(() {
+                          
+                        });
+                      }, child: Text("View History",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.white
+                      ),
+                      )),
+                    ),
+                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only( right: 15, left: 15),
+                child: Text(
+                  "Faculty",
+                  style: TextStyle(
+                    color: mode ? (Colors.white) : (Colors.black),
+                    fontWeight: FontWeight.w900,
+                    fontSize: 16,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: Container(
-                height: 50,
-                width: double.maxFinite,
-                decoration: BoxDecoration(
-                    color: mode ? (Colors.grey[900]) : (greyColor),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.outline,
-                      width: 2,
-                    )),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Container(
+                  height: 50,
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+                      color: mode ? (Colors.grey[900]) : (greyColor),
                       borderRadius: BorderRadius.circular(10),
-                      dropdownColor: mode?(Colors.grey[900]):(greyColor),
-                          value: selectfaculty,
-                          icon: Padding(
-                            padding: const EdgeInsets.only(left: 280),
-                            child: Icon(Icons.arrow_drop_down,
-                            color: Theme.of(context).colorScheme.outline,
+                      border: Border.all(
+                        color: Theme.of(context).colorScheme.outline,
+                        width: 2,
+                      )),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        borderRadius: BorderRadius.circular(10),
+                        dropdownColor: mode?(Colors.grey[900]):(greyColor),
+                            value: selectfaculty,
+                            icon: Padding(
+                              padding: const EdgeInsets.only(left: 280),
+                              child: Icon(Icons.arrow_drop_down,
+                              color: Theme.of(context).colorScheme.outline,
+                              ),
                             ),
+                            onChanged: (String? newValue) {
+                             setState(() {
+                                selectfaculty=newValue!;
+                               
+                                }
+                             );
+                            },
+                            items: faculties.map((String faculty) {
+                              return DropdownMenuItem<String>(
+                                value: faculty,
+                                child: Text(faculty,
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.outline
+                                ),
+                                ),
+                              );
+                            }).toList(),
                           ),
-                          onChanged: (String? newValue) {
-                           setState(() {
-                              selectfaculty=newValue!;
-                             
-                              }
-                           );
-                          },
-                          items: faculties.map((String faculty) {
-                            return DropdownMenuItem<String>(
-                              value: faculty,
-                              child: Text(faculty,
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.outline
-                              ),
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                  ),
-                )
+                    ),
+                  )
+                ),
               ),
-            ),
-            const SizedBox(height: 10,),
-             selectfaculty=="BSc.CSIT"?(dropDownSemester(context,selectSemester)):selectfaculty=="BIT"?(dropDownSemester(context,selectSemester)):(dropDownYear(context,selectYear)),
-            const SizedBox(height: 5,),
-            TextButton(onPressed: (){
-              setState(() {
-                Selecteditems.add(selectfaculty);
-              });
-            }, child: Text("Select")),
-            
-          ],
+              const SizedBox(height: 10,),
+               selectfaculty=="BSc.CSIT"?(dropDownSemester(context)):selectfaculty=="BIT"?(dropDownSemester(context)):(dropDownYear(context)),
+              const SizedBox(height: 5,),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Container(
+                    height: 40,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    child: TextButton(onPressed: (){
+                      setState(() {
+                        addSelecteditems();
+                      });
+                    }, child: Text("Select",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white
+                    ),
+                    )),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 5
+              ),
+                
+              const SizedBox(height: 5.0,),
+              Wrap(
+                spacing: 5.0,
+                runSpacing: 4.0,
+                children: 
+                  List.generate(Selecteditems.length, (index){
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 5.0),
+                      child: Container(
+                        height: 40,
+                        width: 180,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5.0),
+                              child: Text(Selecteditems[index],
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700
+                              ),
+                              ),
+                            ),
+                            IconButton(onPressed: (){
+                              setState(() {
+                                Selecteditems.removeAt(index);
+                              });
+                            }, icon: Icon(Icons.close,color: Colors.white,))
+                          ],
+                        ),
+                      ),
+                    );
+                  })
+                )
+            ],
+          ),
         ),
       ),
     );
-    ;
   }
 }

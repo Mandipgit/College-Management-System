@@ -4,6 +4,7 @@ import 'package:teachers/Pages%20from%20Dashboard/Assignment/test.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Chat/Parents.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Student/attendance.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Student/studentdetails.dart';
+import 'package:teachers/Theme/theme_provider.dart';
 
 final List<String>faculties=['BSc.CSIT','BIT','B.Tech','BND','Physics','Geology'];
 final List <String>Semester=['1stSemester','2ndSemester','3rdSemester','4thSemester','5thSemester','6thSemester','7thSemester','8thSemester'];
@@ -307,7 +308,55 @@ void showBottomSheetStudent(BuildContext context){
     );
   });
 }
-
+void showBottomSheetPublishNotice(BuildContext context) {
+  showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: MediaQuery.of(context).size.height*0.55,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only( topLeft: Radius.circular(30),  topRight: Radius.circular(30)),
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10,top:20),
+                child: SizedBox(
+                  height: 50,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Write Heading For Notice..",
+                      fillColor: mode?(Colors.grey[850]):(Colors.white),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)
+                        )
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10,top:20),
+                child: SizedBox(
+                  height: 200,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Type Here",
+                      fillColor: mode?(Colors.grey[850]):(Colors.grey[400]),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)
+                        )
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+         );
+      });
+}
 
 
  

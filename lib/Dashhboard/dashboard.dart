@@ -148,6 +148,7 @@ class _DashboardpageState extends State<Dashboardpage> {
       child: Scaffold(
         floatingActionButton: buildChatButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
         backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: AppBar(
           title: !language?(Text(
