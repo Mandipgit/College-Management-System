@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teachers/Dashhboard/Bottomsheet.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/viewHistory.dart';
 import 'package:teachers/Theme/theme_provider.dart';
 String selectfaculty="BSc.CSIT";
 String selectSemester="1st Sem";
@@ -177,6 +177,87 @@ Widget buildPostButton(){
       child: Icon(Icons.add,color: Colors.white,),
       ),
   );
+}
+void showBottomSheetPublishNotice(BuildContext context) {
+  var headingController=TextEditingController();
+  var noticeController=TextEditingController();
+  showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: MediaQuery.of(context).size.height*0.55,
+          decoration: BoxDecoration(
+           borderRadius: BorderRadius.only( topLeft: Radius.circular(30),  topRight: Radius.circular(30)),
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10,top:20),
+                child: Container(
+                  height: 300,
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+                    color: mode?(Colors.grey[800]):(Colors.grey[400])
+                  ),
+                  child: Column(
+                    children: [
+                      TextField(
+                        controller: headingController,
+                        maxLines: 2,
+                        style: TextStyle(color: Colors.white,
+                        fontWeight: FontWeight.w900,
+                        fontSize: 17
+                        ),
+                        decoration: InputDecoration(
+                          hintText: "Write Heading For Notice..",
+                          enabledBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
+                            borderSide: BorderSide(color: mode?(primarygrey):(blueColor))
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
+                            borderSide: BorderSide(color: mode?(primarygrey):(blueColor)),
+                          ),
+                          hintStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w900,
+                            fontSize: 15
+                          ),
+                          fillColor: mode?(Colors.grey[850]):(blueColor),
+                          filled: true,
+                          ),
+                      ),
+                       TextField(
+                        controller: noticeController,
+                        maxLines: 8,
+                  decoration: InputDecoration(
+                  hintText: "Type Here",
+                  border: InputBorder.none,
+                  ),
+              )
+                    ],
+                  ),
+                  
+                ),
+              ),
+             TextButton(onPressed: (){
+              setState(() {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewHistory(heading: headingController.text, notice: noticeController.text)));
+              });
+             }, 
+             child: Text("Publish",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white
+                    ),
+                    )),
+            ],
+          ),
+         );
+      });
 }
   @override
   Widget build(BuildContext context) {
