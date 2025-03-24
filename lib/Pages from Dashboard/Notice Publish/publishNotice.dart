@@ -5,6 +5,7 @@ import 'package:teachers/Theme/theme_provider.dart';
 String selectfaculty="BSc.CSIT";
 String selectSemester="1st Sem";
 String selectYear="1st Year";
+bool Select=false;
 final List<String> faculties = [
   'BSc.CSIT',
   'BIT',
@@ -171,7 +172,7 @@ Widget buildPostButton(){
       ) ,
       onPressed: (){
       setState(() {
-        showBottomSheetPublishNotice(context);
+        Select?(showBottomSheetPublishNotice(context)):();
       });},
       child: Icon(Icons.add,color: Colors.white,),
       ),
@@ -264,8 +265,8 @@ Widget buildPostButton(){
                         borderRadius: BorderRadius.circular(10),
                         dropdownColor: mode?(Colors.grey[900]):(greyColor),
                             value: selectfaculty,
-                            icon: Padding(
-                              padding: const EdgeInsets.only(left: 280),
+                            icon: Align(
+                              alignment: Alignment.centerRight,
                               child: Icon(Icons.arrow_drop_down,
                               color: Theme.of(context).colorScheme.outline,
                               ),
@@ -307,6 +308,7 @@ Widget buildPostButton(){
                     ),
                     child: TextButton(onPressed: (){
                       setState(() {
+                        Select=true;
                         addSelecteditems();
                       });
                     }, child: Text("Select",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/assignment.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Assignment/test.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Chat/Parents.dart';
@@ -315,43 +316,60 @@ void showBottomSheetPublishNotice(BuildContext context) {
         return Container(
           height: MediaQuery.of(context).size.height*0.55,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only( topLeft: Radius.circular(30),  topRight: Radius.circular(30)),
+           borderRadius: BorderRadius.only( topLeft: Radius.circular(30),  topRight: Radius.circular(30)),
             color: Theme.of(context).colorScheme.secondary,
           ),
           child: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10,right: 10,top:20),
-                child: SizedBox(
-                  height: 50,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Write Heading For Notice..",
-                      fillColor: mode?(Colors.grey[850]):(Colors.white),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15)
-                        )
-                    ),
+                child: Container(
+                  height: 300,
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+                    color: mode?(Colors.grey[800]):(Colors.grey[400])
                   ),
+                  child: Column(
+                    children: [
+                      TextField(
+                        maxLines: 2,
+                        style: TextStyle(color: Colors.white,
+                        fontWeight: FontWeight.w900,
+                        fontSize: 17
+                        ),
+                        decoration: InputDecoration(
+                          hintText: "Write Heading For Notice..",
+                          enabledBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
+                            borderSide: BorderSide(color: mode?(primarygrey):(blueColor))
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
+                            borderSide: BorderSide(color: mode?(primarygrey):(blueColor)),
+                          ),
+                          hintStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w900,
+                            fontSize: 15
+                          ),
+                          fillColor: mode?(Colors.grey[850]):(blueColor),
+                          filled: true,
+                          ),
+                      ),
+                       TextField(
+                        maxLines: 8,
+                  decoration: InputDecoration(
+                  hintText: "Type Here",
+                  border: InputBorder.none,
+                  ),
+              )
+                    ],
+                  ),
+                  
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10,top:20),
-                child: SizedBox(
-                  height: 200,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Type Here",
-                      fillColor: mode?(Colors.grey[850]):(Colors.grey[400]),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15)
-                        )
-                    ),
-                  ),
-                ),
-              )
+             
             ],
           ),
          );
