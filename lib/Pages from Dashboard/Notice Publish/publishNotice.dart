@@ -17,6 +17,11 @@ final List<String> faculties = [
 final List <String>Semester=['1st Sem','2nd Sem','3rd Sem','4th Sem','5th Sem','6th Sem','7th Sem','8th Sem'];
 final List <String>Year=['1st Year','2nd Year','3rd Year','4th Year'];
 final List <String>Selecteditems=[];
+final List <String>listHeading=[];
+final List <String>listNotice=[];
+final List <String>Noticepublish=[];
+var headingController=TextEditingController();
+var noticeController=TextEditingController();
 
 
 class publishNotice extends StatefulWidget {
@@ -244,7 +249,8 @@ void showBottomSheetPublishNotice(BuildContext context) {
               ),
              TextButton(onPressed: (){
               setState(() {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewHistory(heading: headingController.text, notice: noticeController.text)));
+                addNotice();
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewHistory(heading: headingController.text, notice: noticeController.text,faculty: Selecteditems,)));
               });
              }, 
              child: Text("Publish",
@@ -258,6 +264,11 @@ void showBottomSheetPublishNotice(BuildContext context) {
           ),
          );
       });
+}
+void addNotice(){
+  setState(() {
+   Noticepublish.add(headingController.text);
+  });
 }
   @override
   Widget build(BuildContext context) {
