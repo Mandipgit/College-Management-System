@@ -4,7 +4,7 @@ import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/viewNotice.da
 
 final List<String>headingList=[];
 final List<String>noticeList=[];
-String updateheading="";
+ String updateheading="";
 String updatenotice="";
   
 class viewHistory extends StatefulWidget {
@@ -18,18 +18,21 @@ class viewHistory extends StatefulWidget {
 }
 
 class _viewHistoryState extends State<viewHistory> {
-  @override
-   void viewnotice(){
-     for(int i=0; i<headingList.length && i<noticeList.length;i++){
-      if(headingList[i]==noticeList[i]){
-        String updateheading=headingList[i];
-        String updatenotice=noticeList[i];
+  
+   viewnotice(){
+    setState(() {
+       if(headingList.isNotEmpty&&noticeList.isNotEmpty){
+        updateheading=headingList.last;
+         updatenotice=noticeList.last;
       }
-     }
+     
+    });
   }
   void initState(){
     super.initState();
     addHeading();
+    addNotice();
+    viewnotice();
   }
   void addHeading(){
     setState(() {
@@ -43,7 +46,6 @@ class _viewHistoryState extends State<viewHistory> {
     }
   @override
   Widget build(BuildContext context) {
-    print(headingList);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -67,34 +69,43 @@ class _viewHistoryState extends State<viewHistory> {
               )),
         ),
         body:  
-        ListView.builder(
-          itemCount: headingList.length,
-          itemBuilder: (context,index){
-            return Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: SizedBox(
-                height: 70,
-                child: Card(
-                  color: Colors.blueGrey[400],
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: ListView.builder(
+            itemCount: headingList.length,
+            itemBuilder: (context,index){
+              return Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Container(
+                  height: 60,
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(
+                      color: Colors.black
+                    )
+                  ),
                   child: ListTile(
                     title: Text(headingList[index],
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
+                      color: Colors.black,
+                      fontSize: 20,
                       fontWeight: FontWeight.w900
                     ),
                     ),
                    
                     onTap: () {
                       setState(() {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewNotice(viewheading: updateheading, viewnotice: updatenotice)));
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewNotice(viewheading: headingList[index], viewnotice: noticeList[index])));
                       });
                     },
                   ),
                 ),
-              ),
-            );
-        })
+              );
+          }),
+        )
       ));
   }
 }

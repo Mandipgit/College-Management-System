@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/publishNotice.dart';
-import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/viewHistory.dart';
+
 
 class viewNotice extends StatefulWidget {
   final String viewheading;
@@ -14,11 +14,12 @@ class viewNotice extends StatefulWidget {
 class _viewNoticeState extends State<viewNotice> {
   @override
   Widget build(BuildContext context) {
+    print(widget.viewheading);
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           title: Text(
-            widget.viewheading,
+            "View Notice",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w800,
@@ -34,6 +35,28 @@ class _viewNoticeState extends State<viewNotice> {
                 Icons.arrow_back,
                 color: Colors.white,
               )),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 10,left: 10,right: 10),
+          child: Column(
+            children: [
+              Text("${widget.viewheading}",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.w800
+              ),
+              ),
+              const SizedBox(height: 10,),
+              Text("${widget.viewnotice}",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w800
+              ),
+              ),
+            ],
+          ),
         ),
     );
   }
