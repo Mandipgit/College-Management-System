@@ -51,7 +51,7 @@ class _viewNoticeState extends State<viewNotice> {
               Text("${widget.viewnotice}",
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 17,
+                fontSize: 16,
                 fontWeight: FontWeight.w800
               ),
               ),
