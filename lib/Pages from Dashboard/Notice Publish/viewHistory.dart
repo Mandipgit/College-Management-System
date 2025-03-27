@@ -36,6 +36,7 @@ class _viewHistoryState extends State<viewHistory> {
   }
   void addHeading(){
     setState(() {
+
       headingList.add(widget.heading);
     });
     }

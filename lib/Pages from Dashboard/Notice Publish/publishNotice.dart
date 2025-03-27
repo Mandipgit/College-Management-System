@@ -6,6 +6,7 @@ String selectfaculty="BSc.CSIT";
 String selectSemester="1st Sem";
 String selectYear="1st Year";
 bool Select=false;
+bool Publish=false;
 final List<String> faculties = [
   'BSc.CSIT',
   'BIT',
@@ -168,103 +169,8 @@ return  Column(
           ],
         );
 }
-Widget buildPostButton(){
-  return Padding(
-    padding: const EdgeInsets.only(bottom: 30),
-    child: FloatingActionButton(
-      shape:RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(100)
-      ) ,
-      onPressed: (){
-      setState(() {
-        Select?(showBottomSheetPublishNotice(context)):();
-      });},
-      child: Icon(Icons.add,color: Colors.white,),
-      ),
-  );
-}
-void showBottomSheetPublishNotice(BuildContext context) {
-  var headingController=TextEditingController();
-  var noticeController=TextEditingController();
-  showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Container(
-          height: MediaQuery.of(context).size.height*0.55,
-          decoration: BoxDecoration(
-           borderRadius: BorderRadius.only( topLeft: Radius.circular(30),  topRight: Radius.circular(30)),
-            color: Theme.of(context).colorScheme.secondary,
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10,top:20),
-                child: Container(
-                  height: 300,
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-                    color: mode?(Colors.grey[800]):(Colors.grey[400])
-                  ),
-                  child: Column(
-                    children: [
-                      TextField(
-                        controller: headingController,
-                        maxLines: 2,
-                        style: TextStyle(color: Colors.white,
-                        fontWeight: FontWeight.w900,
-                        fontSize: 17
-                        ),
-                        decoration: InputDecoration(
-                          hintText: "Write Heading For Notice..",
-                          enabledBorder: OutlineInputBorder(
-                             borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
-                            borderSide: BorderSide(color: mode?(primarygrey):(blueColor))
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                             borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
-                            borderSide: BorderSide(color: mode?(primarygrey):(blueColor)),
-                          ),
-                          hintStyle: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 15
-                          ),
-                          fillColor: mode?(Colors.grey[850]):(blueColor),
-                          filled: true,
-                          ),
-                      ),
-                       TextField(
-                        controller: noticeController,
-                        maxLines: 8,
-                  decoration: InputDecoration(
-                  hintText: "Type Here",
-                  border: InputBorder.none,
-                  ),
-              )
-                    ],
-                  ),
-                  
-                ),
-              ),
-             TextButton(onPressed: (){
-              setState(() {
-                addNotice();
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewHistory(heading: headingController.text, notice: noticeController.text,faculty: Selecteditems,)));
-              });
-             }, 
-             child: Text("Publish",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white
-                    ),
-                    )),
-            ],
-          ),
-         );
-      });
-}
+
+
 void addNotice(){
   setState(() {
    Noticepublish.add(headingController.text);
@@ -274,10 +180,7 @@ void addNotice(){
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: buildPostButton(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-        appBar: AppBar(
+       appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           title: Text(
             "Notice Section",
@@ -315,7 +218,7 @@ void addNotice(){
                       ),
                       child: TextButton(onPressed: (){
                         setState(() {
-                          
+                         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewHistory(heading: headingController.text, notice: noticeController.text,faculty: Selecteditems,)));
                         });
                       }, child: Text("View History",
                       style: TextStyle(
@@ -396,7 +299,7 @@ void addNotice(){
                     width: 80,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Theme.of(context).colorScheme.primary,
+                      color: mode?(primarygrey):(Colors.blueGrey),
                     ),
                     child: TextButton(onPressed: (){
                       setState(() {
@@ -418,43 +321,142 @@ void addNotice(){
               ),
                 
               const SizedBox(height: 5.0,),
-              Wrap(
-                spacing: 5.0,
-                runSpacing: 4.0,
-                children: 
-                  List.generate(Selecteditems.length, (index){
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 5.0),
-                      child: Container(
-                        height: 40,
-                        width: 180,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.secondary,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 5.0),
-                              child: Text(Selecteditems[index],
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700
-                              ),
-                              ),
+              IntrinsicHeight(
+                child: Container(
+                  decoration: BoxDecoration(
+                    ),
+                  child: Wrap(
+                    spacing: 5.0,
+                    runSpacing: 4.0,
+                    children: 
+                      List.generate(Selecteditems.length, (index){
+                        return Padding(
+                          padding: const EdgeInsets.only(left: 5.0),
+                          child: Container(
+                            height: 40,
+                            width: 185,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.secondary,
+                              borderRadius: BorderRadius.circular(15),
                             ),
-                            IconButton(onPressed: (){
-                              setState(() {
-                                Selecteditems.removeAt(index);
-                              });
-                            }, icon: Icon(Icons.close,color: Colors.white,))
-                          ],
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [ 
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 5.0),
+                                  child: Text(Selecteditems[index],
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700
+                                  ),
+                                  ),
+                                ),
+                                IconButton(onPressed: (){
+                                  setState(() {
+                                    Selecteditems.removeAt(index);
+                                    Select=false;
+                                  });
+                                }, icon: Icon(Icons.close,color: Colors.white,))
+                              ],
+                            ),
+                          ),
+                        );
+                      })
+                    ),
+                ),
+              ),
+              const SizedBox(height: 10,),
+               Padding(
+                 padding: const EdgeInsets.only(right: 15,left: 15,top: 10),
+                 child: IntrinsicHeight(
+                   child: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Heading For Notice",
+                        style: TextStyle(
+                          color: Select?(mode ? (Colors.white) : (Colors.black)):(Colors.grey[700]),
+                      fontWeight: FontWeight.w900,
+                      fontSize: 16,
                         ),
-                      ),
-                    );
-                  })
-                )
+                        ),
+                        TextField(
+                          enabled: Select?(true):(false),
+                          controller: headingController,
+                          maxLines: 1,
+                          decoration: InputDecoration(
+                            hintText: "Write Heading for Notice..",
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(color: Theme.of(context).colorScheme.outline,
+                              width: 2,
+                              )
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(color: Theme.of(context).colorScheme.outline,
+                              width: 2,
+                              ) 
+                            )
+                          ),
+                        ),
+                        const SizedBox(height: 13,),
+                        Text("Write Notice",
+                        style: TextStyle(
+                          color: Select?(mode ? (Colors.white) : (Colors.black)):(Colors.grey[700]),
+                      fontWeight: FontWeight.w900,
+                      fontSize: 16,
+                        ),
+                        ),
+                         TextField(
+                          enabled: Select?(true):(false),
+                          controller: noticeController,
+                          maxLines: 5,
+                          decoration: InputDecoration(
+                            hintText: "Type Here",
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(color: Theme.of(context).colorScheme.outline,
+                              width: 2,
+                              )
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(color: Theme.of(context).colorScheme.outline,
+                              width: 2,
+                              ) 
+                            )
+                          ),
+                        ),
+                      ],
+                    ),
+                   ),
+                 ),
+               ),
+               const SizedBox(height: 10,),
+             Center(
+               child: Container(
+                height: 40,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                 child: TextButton(onPressed:Select?((){
+                  setState(() {
+                    addNotice();
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewHistory(heading: headingController.text, notice: noticeController.text,faculty: Selecteditems,)));
+                  });
+                 }):(null), 
+                 child: Text("Publish",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white
+                        ),
+                        )),
+               ),
+             ),
             ],
           ),
         ),
