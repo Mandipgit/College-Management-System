@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/viewHistory.dart';
@@ -7,6 +10,7 @@ String selectSemester="1st Sem";
 String selectYear="1st Year";
 bool Select=false;
 bool Publish=false;
+bool isPublished=false;
 final List<String> faculties = [
   'BSc.CSIT',
   'BIT',
@@ -42,6 +46,17 @@ class _publishNoticeState extends State<publishNotice> {
        Selecteditems.add(selectedText);
      }
     });
+  }
+  @override
+  void initState(){
+    super.initState();
+    headingController.addListener(checkTextFields);
+    noticeController.addListener(checkTextFields);
+  }
+  void checkTextFields(){
+setState(() {
+      isPublished=headingController.text.isNotEmpty&&noticeController.text.isNotEmpty;
+});
   }
   dropDownSemester(BuildContext context){
 return  Column(
@@ -176,6 +191,30 @@ void addNotice(){
    Noticepublish.add(headingController.text);
   });
 }
+
+FilePickerResult?result;
+String?filename;
+PlatformFile?pickedfile;
+File?filetodisplay;
+pickFile()async{
+  try{
+    result=await FilePicker.platform.pickFiles(
+      type: FileType.image,
+      allowMultiple: false,
+    );
+    if(result!=null){
+      
+     filename=result!.files.first.name;
+      pickedfile=result!.files.first;
+     setState(() {
+        filetodisplay=File(pickedfile!.path.toString());
+     });
+    }
+  }catch(e){
+    print("e");
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -386,6 +425,8 @@ void addNotice(){
                           maxLines: 1,
                           decoration: InputDecoration(
                             hintText: "Write Heading for Notice..",
+                            filled: true,
+                            fillColor: mode?(primarygrey):(Colors.white),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(color: Theme.of(context).colorScheme.outline,
@@ -413,6 +454,8 @@ void addNotice(){
                           controller: noticeController,
                           maxLines: 5,
                           decoration: InputDecoration(
+                            filled: true,
+                            fillColor: mode?(primarygrey):(Colors.white),
                             hintText: "Type Here",
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -434,6 +477,25 @@ void addNotice(){
                  ),
                ),
                const SizedBox(height: 10,),
+                 Center(
+               child: Container(
+                height: 40,
+                    width: 115,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                 child: TextButton(onPressed:pickFile, 
+                 child: Text("Upload File",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white
+                        ),
+                        )),
+               ),
+             ),
+               const SizedBox(height: 30,),
              Center(
                child: Container(
                 height: 40,
@@ -442,12 +504,13 @@ void addNotice(){
                       borderRadius: BorderRadius.circular(10),
                       color: Theme.of(context).colorScheme.primary,
                     ),
-                 child: TextButton(onPressed:Select?((){
+                 child: TextButton(onPressed:Select?(isPublished?((){
                   setState(() {
-                    addNotice();
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewHistory(heading: headingController.text, notice: noticeController.text,faculty: Selecteditems,)));
-                  });
-                 }):(null), 
+                     addNotice();
+Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewHistory(heading: headingController.text, notice: noticeController.text,faculty: Selecteditems,)));
+                   
+          });
+                 }):(null)):(null), 
                  child: Text("Publish",
                         style: TextStyle(
                           fontSize: 16,

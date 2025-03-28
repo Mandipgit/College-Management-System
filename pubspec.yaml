@@ -37,6 +37,7 @@ dependencies:
   popover: ^0.3.1
   provider:
   percent_indicator: ^4.2.4
+  file_picker: ^9.2.2
 
 dev_dependencies:
   flutter_test:

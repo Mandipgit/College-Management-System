@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/publishNotice.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/viewNotice.dart';
+import 'package:teachers/Theme/theme_provider.dart';
 
 final List<String>headingList=[];
 final List<String>noticeList=[];
@@ -36,13 +38,16 @@ class _viewHistoryState extends State<viewHistory> {
   }
   void addHeading(){
     setState(() {
-
-      headingList.add(widget.heading);
+      if(!headingList.contains(widget.heading)){
+        headingList.add(widget.heading);
+      }
     });
     }
     void addNotice(){
     setState(() {
-      noticeList.add(widget.notice);
+      if(!noticeList.contains(widget.notice)){
+        noticeList.add(widget.notice);
+      }
     });
     }
   @override
@@ -81,9 +86,10 @@ class _viewHistoryState extends State<viewHistory> {
                   height: 60,
                   width: double.maxFinite,
                   decoration: BoxDecoration(
+                    color: mode?(primarygrey):Colors.white,
                     borderRadius: BorderRadius.circular(5),
                     border: Border.all(
-                      color: Colors.black
+                      color: Theme.of(context).colorScheme.outline
                     )
                   ),
                   child: ListTile(
@@ -91,7 +97,7 @@ class _viewHistoryState extends State<viewHistory> {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: Colors.black,
+                      color: mode?(Colors.white):(Colors.black),
                       fontSize: 20,
                       fontWeight: FontWeight.w900
                     ),
