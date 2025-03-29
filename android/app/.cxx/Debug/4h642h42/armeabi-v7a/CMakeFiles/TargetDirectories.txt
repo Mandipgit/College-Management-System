@@ -1,0 +1,2 @@
+E:/Project CMC/teachers/android/app/.cxx/Debug/4h642h42/armeabi-v7a/CMakeFiles/edit_cache.dir
+E:/Project CMC/teachers/android/app/.cxx/Debug/4h642h42/armeabi-v7a/CMakeFiles/rebuild_cache.dir
