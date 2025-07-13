@@ -3,7 +3,7 @@ import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/publishNotice.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/viewNotice.dart';
 import 'package:teachers/Theme/theme_provider.dart';
-
+import'dart:io';
 final List<String>headingList=[];
 final List<String>noticeList=[];
  String updateheading="";
@@ -13,7 +13,10 @@ class viewHistory extends StatefulWidget {
    final String heading;
    final String notice;
    final List<String> faculty;
-   viewHistory({required this.heading,required this.notice,required this.faculty});
+    final String fileName;       
+  final String filePath;       
+  final String fileExtension;  
+   viewHistory({required this.heading,required this.notice,required this.faculty,required this.fileName,required this.fileExtension,required this.filePath});
 
   @override
   State<viewHistory> createState() => _viewHistoryState();
@@ -81,7 +84,7 @@ class _viewHistoryState extends State<viewHistory> {
             itemCount: headingList.length,
             itemBuilder: (context,index){
               return Padding(
-                padding: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.only(top: 5,left: 3,right:3),
                 child: Container(
                   height: 60,
                   width: double.maxFinite,
@@ -99,13 +102,16 @@ class _viewHistoryState extends State<viewHistory> {
                     style: TextStyle(
                       color: mode?(Colors.white):(Colors.black),
                       fontSize: 20,
-                      fontWeight: FontWeight.w900
+                      fontWeight: FontWeight.w900,
+                      fontFamily: 'Times New Roman',
                     ),
                     ),
                    
                     onTap: () {
                       setState(() {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewNotice(viewheading: headingList[index], viewnotice: noticeList[index])));
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>viewNotice(viewheading: headingList[index], viewnotice: noticeList[index],   fileName: widget.fileName,
+  filePath: widget.filePath,
+  fileExtension: widget.fileExtension,)));
                       });
                     },
                   ),

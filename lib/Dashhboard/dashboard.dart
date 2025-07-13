@@ -307,15 +307,15 @@ class _DashboardpageState extends State<Dashboardpage> {
                                       color: Theme.of(context).colorScheme.primary,
                                     ),
                                     child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      // mainAxisAlignment:
+                                      //     MainAxisAlignment.start,
                                       children: [
                                         Text(
                                          !language?("Mark Your Attendance"):("हाजिर गर्नुहोस्"),
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w500,
-                                            fontSize: 16,
+                                            fontSize: 14,
                                           ),
                                         ),
                                         const SizedBox(width: 0),
@@ -424,11 +424,11 @@ class _DashboardpageState extends State<Dashboardpage> {
                             )
                       ],
                     ),
-                    const SizedBox(width: 30),
+                    const SizedBox(width: 20),
                     Padding(
                       padding: const EdgeInsets.only(top: 15),
                       child: CircleAvatar(
-                        radius: 50,
+                        radius: 45,
                         child: GestureDetector(
                           child: SizedBox(
                             width: 100,
