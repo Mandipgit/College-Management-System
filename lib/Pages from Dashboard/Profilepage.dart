@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
-import 'package:teachers/Theme/theme.dart';
 import 'package:teachers/Theme/theme_provider.dart';
 
 class profilePage extends StatefulWidget {
