@@ -1,10 +1,11 @@
 import 'dart:io';
-
+import 'package:intl/intl.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/viewHistory.dart';
 import 'package:teachers/Theme/theme_provider.dart';
+
 
 String selectfaculty = "BSc.CSIT";
 String selectSemester = "1st Sem";
@@ -594,6 +595,7 @@ class _publishNoticeState extends State<publishNotice> {
                             ? (isPublished
                                 ? (() {
                                     setState(() {
+                                      DateTime now = DateTime.now();
                                       addNotice();
                                       Navigator.of(context)
                                           .pushReplacement(MaterialPageRoute(

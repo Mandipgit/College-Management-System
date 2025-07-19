@@ -52,19 +52,14 @@ class _viewNoticeState extends State<viewNotice> {
             Column(
               children: [
                 Center(
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Theme.of(context).colorScheme.outline, width: 2),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
                     child: Text(
                       widget.viewheading,
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
                         fontFamily: 'Times New Roman',
                         color: Colors.black,
                       ),
@@ -75,7 +70,7 @@ class _viewNoticeState extends State<viewNotice> {
                   height: 10,
                 ),
                 Text(
-                  "        ""${widget.viewnotice}",
+                  "   ""${widget.viewnotice}",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
