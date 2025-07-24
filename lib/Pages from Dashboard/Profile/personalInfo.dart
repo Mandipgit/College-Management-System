@@ -11,6 +11,8 @@ final _emailcontroller=TextEditingController(text: "mandippokharel456@gmail.com"
 final _addresscontroller=TextEditingController(text: "Arjundhara-14,Jhapa");
 final _phonecontroller=TextEditingController(text: "9845201451");
 final _dobController=TextEditingController(text:"2000-01-01");
+String  name= "${_firstnamecontroller.text} ${_lastnamecontroller.text}";
+String firstname1=_firstnamecontroller.text;
 class Personalinfo extends StatefulWidget {
   const Personalinfo({super.key});
   
@@ -20,6 +22,7 @@ class Personalinfo extends StatefulWidget {
 }
 
 class _PersonalinfoState extends State<Personalinfo> {
+  // String  name= "";
   Future<void> _selectDate(BuildContext context) async {
   DateTime? pickedDate = await showDatePicker(
     context: context,
@@ -33,6 +36,20 @@ class _PersonalinfoState extends State<Personalinfo> {
       _dobController.text = "${pickedDate.toLocal()}".split(' ')[0]; 
     });
   }
+}
+@override
+void initState(){
+  super.initState();
+  name="${_firstnamecontroller.text} ${_lastnamecontroller.text}";
+  firstname1=_firstnamecontroller.text;
+  _firstnamecontroller.addListener(_updateName);
+  _lastnamecontroller.addListener(_updateName);
+}
+void _updateName(){
+setState(() {
+  name="${_firstnamecontroller.text} ${_lastnamecontroller.text}";
+  firstname1="${_firstnamecontroller.text}";
+});
 }
 
   
@@ -52,7 +69,7 @@ class _PersonalinfoState extends State<Personalinfo> {
           leading: IconButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => profilePage()),
+                MaterialPageRoute(builder: (context) => profilePage(name:"${_firstnamecontroller} ${_lastnamecontroller}",firstname:_firstnamecontroller.text,)),
               );
             },
             icon: Icon(Icons.arrow_back),

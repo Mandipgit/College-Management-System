@@ -4,6 +4,7 @@ import 'package:teachers/Dashhboard/Bottomsheet.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Chat/Teachers.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/publishNotice.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profile/Profilepage.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Profile/personalInfo.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
 import 'package:teachers/Pages%20from%20Dashboard/notificationPage.dart';
 import 'package:teachers/Theme/theme_provider.dart';
@@ -19,12 +20,14 @@ Color floatingActionButtondark= Colors.black;
 Color floatingActionButtonlight= Color(0xFF274C77);
 Color dividerDark=Colors.white;
 Color dividerLight=Colors.black;
+
 void main() {
   runApp(MyApp());
 }
 
 class Dashboardpage extends StatefulWidget {
-  const Dashboardpage({super.key});
+  final String ?name1;
+  const Dashboardpage({super.key,this.name1});
 
   @override
   State<Dashboardpage> createState() => _DashboardpageState();
@@ -290,7 +293,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(!language?("Hello Mandip"):("नमस्ते मन्दिप"),
+                        Text("Hello ${widget.name1}",
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
@@ -441,7 +444,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                             ),
                           ),
                           onTap: (){
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>profilePage()));
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>profilePage(name: null,)));
                           },
                         ),
                         

@@ -5,7 +5,9 @@ import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
 import 'package:teachers/Theme/theme_provider.dart';
 
 class profilePage extends StatefulWidget {
-  const profilePage({super.key});
+  final String ?name;
+  final String ?firstname;
+  const profilePage({super.key, this.name, this.firstname});
 
   @override
   State<profilePage> createState() => _profilePageState();
@@ -31,7 +33,7 @@ class _profilePageState extends State<profilePage> {
           leading: IconButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => Dashboardpage()),
+                MaterialPageRoute(builder: (context) => Dashboardpage(name1:widget.firstname,)),
               );
             },
             icon: Icon(Icons.arrow_back),
@@ -111,7 +113,7 @@ class _profilePageState extends State<profilePage> {
                         child: Column(
                           children: [
                             Text(
-                              "Mandip Pokharel",
+                              name,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
