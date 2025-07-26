@@ -26,7 +26,7 @@ void main() {
 }
 
 class Dashboardpage extends StatefulWidget {
-  final String ?name1;
+  final String? name1;
   const Dashboardpage({super.key,this.name1});
 
   @override
@@ -293,7 +293,7 @@ class _DashboardpageState extends State<Dashboardpage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Hello ${widget.name1}",
+                        Text("Hello Mandeep",
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,

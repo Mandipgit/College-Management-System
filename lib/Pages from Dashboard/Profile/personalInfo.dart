@@ -4,7 +4,7 @@ import 'package:teachers/Theme/theme_provider.dart';
 
 
 bool editMode=false;
-final _formKey=GlobalKey <FormState>();
+final _personalformKey=GlobalKey <FormState>();
 final _firstnamecontroller=TextEditingController(text:"Mandeep");
 final _lastnamecontroller=TextEditingController(text:"Pokharel");
 final _emailcontroller=TextEditingController(text: "mandippokharel456@gmail.com");
@@ -88,7 +88,7 @@ setState(() {
             child: Column(
                children: [
                 Form(
-                  key: _formKey,
+                  key: _personalformKey,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 15,bottom: 25),
                     child: CircleAvatar(
