@@ -159,7 +159,7 @@ return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
     color: mode?(Colors.grey):(Colors.white),
-    margin: const EdgeInsets.symmetric(vertical: 10),
+    margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
     child:ListTile(
@@ -170,6 +170,9 @@ return Padding(
         keyboardType: keyboardType,
         maxLines: maxLines,
         decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           labelText: label,
         ),
         validator: (value){
@@ -217,7 +220,7 @@ return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
     color: mode?(Colors.grey):(Colors.white),
-    margin: const EdgeInsets.symmetric(vertical: 10),
+    margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
     child:ListTile(
@@ -228,6 +231,9 @@ return Padding(
         keyboardType: keyboardType,
         maxLines: maxLines,
         decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           labelText: label,
         ),
         validator: (value){
@@ -278,7 +284,7 @@ return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
     color: mode?(Colors.grey):(Colors.white),
-    margin: const EdgeInsets.symmetric(vertical: 10),
+    margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
     child:ListTile(
@@ -289,6 +295,9 @@ return Padding(
         keyboardType: keyboardType,
         maxLines: maxLines,
         decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           labelText: label,
         ),
         validator: (value){
@@ -340,7 +349,7 @@ return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
     color: mode?(Colors.grey):(Colors.white),
-    margin: const EdgeInsets.symmetric(vertical: 10),
+    margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
     child:ListTile(
@@ -353,6 +362,9 @@ return Padding(
         keyboardType: keyboardType,
         maxLines: maxLines,
         decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           labelText: label,
         ),
         validator: (value){
