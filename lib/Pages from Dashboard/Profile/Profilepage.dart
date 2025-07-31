@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
+import 'package:teachers/Pages%20from%20Dashboard/Profile/educationalinfo.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profile/personalInfo.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profile/professionalInfo.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
@@ -403,6 +404,9 @@ class _profilePageState extends State<profilePage> {
                 )
                 ),
                 trailing: Icon(Icons.arrow_forward),
+                onTap: (){
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>educationalinfo()));
+                },
               ),
               Divider(
                 color: Theme.of(context).colorScheme.outline,
