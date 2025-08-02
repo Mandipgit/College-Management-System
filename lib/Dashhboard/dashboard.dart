@@ -4,7 +4,6 @@ import 'package:teachers/Dashhboard/Bottomsheet.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Chat/Teachers.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/publishNotice.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profile/Profilepage.dart';
-import 'package:teachers/Pages%20from%20Dashboard/Profile/personalInfo.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
 import 'package:teachers/Pages%20from%20Dashboard/notificationPage.dart';
 import 'package:teachers/Theme/theme_provider.dart';
