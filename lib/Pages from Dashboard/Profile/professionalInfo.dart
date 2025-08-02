@@ -123,7 +123,7 @@ class _ProfessionalinfoState extends State<Professionalinfo> {
                         Padding(
                           padding: const EdgeInsets.only(left: 10,right:10),
                           child: Card(
-                            color: mode?(Colors.grey):(Colors.white),
+                            color: mode?(primarygrey):(Colors.white),
                             margin:const EdgeInsets.symmetric(vertical: 2.0),
                             elevation: 4,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -150,7 +150,7 @@ class _ProfessionalinfoState extends State<Professionalinfo> {
                            Padding(
                           padding: const EdgeInsets.only(left: 10,right:10),
                           child: Card(
-                            color: mode?(Colors.grey):(Colors.white),
+                            color: mode?(primarygrey):(Colors.white),
                             margin:const EdgeInsets.symmetric(vertical: 2.0),
                             elevation: 4,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -193,7 +193,7 @@ Widget _buildinfoCard({
   return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
-    color: mode?(Colors.grey):(Colors.white),
+    color: mode?(primarygrey):(Colors.white),
     margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
@@ -253,7 +253,7 @@ Widget _buildexperienceCard({
   return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
-    color: mode?(Colors.grey):(Colors.white),
+    color: mode?(primarygrey):(Colors.white),
     margin: const EdgeInsets.symmetric(vertical: 10),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
@@ -314,7 +314,7 @@ Widget _buildDateCard({
 return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
-    color: mode?(Colors.grey):(Colors.white),
+    color: mode?(primarygrey):(Colors.white),
     margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,

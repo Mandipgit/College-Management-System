@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'package:teachers/Dashhboard/Bottomsheet.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Chat/Teachers.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/publishNotice.dart';
@@ -37,118 +38,29 @@ class _DashboardpageState extends State<Dashboardpage> {
   bool iconChecked = false;
   bool isFABpressed = false;
 
-  Widget buildChatButton() {
-    return !isFABpressed
-        ? Padding(
-            padding: const EdgeInsets.only(
-              bottom: 50,
-            ),
-            child: FloatingActionButton(
-                backgroundColor: Theme.of(context).colorScheme.tertiary,
-                child: Icon(
-                  (Icons.chat),
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  setState(() {
-                    isFABpressed = !isFABpressed;
-                  });
-                }),
-          )
-        : Padding(
-            padding: const EdgeInsets.only(bottom: 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                SizedBox(
-                  height: 150,
-                  width: 180,
-                  child: FloatingActionButton.extended(
+  Widget buildModeButton() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: FloatingActionButton(
+                      tooltip:"Change Mode to Light and Dark",
                       backgroundColor: Theme.of(context).colorScheme.tertiary,
                       foregroundColor: Colors.white,
-                      label: Column(
-                        children: [
-                          SizedBox(
-                            width: 180,
-                            child: TextButton.icon(
-                                onPressed: () {
-                                  parentschat=true;
-                                  showBottomSheetFaculty(context);
-                                },
-                                icon: Icon(
-                                  Icons.family_restroom,
-                                  color: Colors.white,
-                                ),
-                                label: Text(
-                                  !language?("Parents"):("अभिभावक"),
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                )),
-                          ),
-                          SizedBox(
-                            width: 180,
-                            child: TextButton.icon(
-                                onPressed: () {
-                                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>teacherChat()));
-                                },
-                                icon: Icon(
-                                  Icons.school,
-                                  color: Colors.white,
-                                ),
-                                label: Text(
-                                  !language?("Teachers"):("शिक्षक"),
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                )),
-                          ),
-                          SizedBox(
-                            width: 180,
-                            child: TextButton.icon(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.admin_panel_settings,
-                                  color: Colors.white,
-                                ),
-                                label: Text(
-                                  !language?("Administration"):("प्रशासन"),
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                )),
-                          )
-                        ],
-                      ),
-                      onPressed: () {}),
-                ),
-                const SizedBox(width: 10),
-                FloatingActionButton(
-                    backgroundColor: Theme.of(context).colorScheme.tertiary,
-                    foregroundColor: Colors.white,
-                    child: Icon(Icons.close),
-                    onPressed: () {
-                      setState(() {
-                        isFABpressed = false;
-                      });
-                    }),
-              ],
-            ),
-          );
+                      child: Icon(isFABpressed?(Icons.light_mode):(Icons.dark_mode)),
+                      onPressed: () {
+                        setState(() {
+                          Provider.of<ThemeProvider>(context,listen:false).toggleTheme();
+                          isFABpressed = !isFABpressed;
+                        });
+                      }),
+    );
+           
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: buildChatButton(),
+        floatingActionButton: buildModeButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
         backgroundColor: Theme.of(context).colorScheme.surface,

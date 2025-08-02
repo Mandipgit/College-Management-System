@@ -196,7 +196,7 @@ class _profilePageState extends State<profilePage> {
                   padding: const EdgeInsets.all(0),
                   child: Card(
                     elevation: 4,
-                    color: mode?(Colors.grey):(Colors.white),
+                    color: mode?(primarygrey):(Colors.white),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),

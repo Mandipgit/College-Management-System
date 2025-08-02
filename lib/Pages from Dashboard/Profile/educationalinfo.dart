@@ -18,6 +18,7 @@ class _educationalinfoState extends State<educationalinfo> {
   final yearController=TextEditingController();
   final gradeController=TextEditingController();
   showDialog(context: context, builder:(context)=>AlertDialog(
+    backgroundColor: mode?(primarygrey):(Colors.white),
     title: Text("Add Educational Information",
     style: TextStyle(
       fontSize: 20,
@@ -32,10 +33,22 @@ class _educationalinfoState extends State<educationalinfo> {
             TextFormField(
               controller: degreeController,
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15)
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: mode?(Colors.white):(Colors.black)
+                  )
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: mode?(Colors.white):(Colors.black)
+                  )
                 ),
                 labelText: "Degree",
+                labelStyle: TextStyle(
+                  color: mode?(Colors.white):(Colors.black)
+                ),
               ),
               validator: (value) => (value == null || value.trim().isEmpty)?"Required":null,
             ),
@@ -44,9 +57,21 @@ class _educationalinfoState extends State<educationalinfo> {
               controller: institutionController,
               decoration: InputDecoration(
                 labelText: "Institution",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15)
+                labelStyle: TextStyle(
+                  color: mode?(Colors.white):(Colors.black)
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: mode?(Colors.white):(Colors.black)
+                  )
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: mode?(Colors.white):(Colors.black)
+                  )
+                )
               ),
               validator: (value) => (value == null || value.trim().isEmpty)?"Required":null,
             ),
@@ -55,9 +80,21 @@ class _educationalinfoState extends State<educationalinfo> {
               controller: yearController,
               decoration: InputDecoration(
                 labelText: "Year",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15)
+                labelStyle: TextStyle(
+                  color: mode?(Colors.white):(Colors.black)
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: mode?(Colors.white):(Colors.black)
+                  )
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: mode?(Colors.white):(Colors.black)
+                  )
+                )
               ),
               validator: (value) => (value == null || value.trim().isEmpty)?"Required":null,
             ),
@@ -66,9 +103,21 @@ class _educationalinfoState extends State<educationalinfo> {
               controller: gradeController,
               decoration: InputDecoration(
                 labelText: "Grade",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15)
+                labelStyle: TextStyle(
+                  color: mode?(Colors.white):(Colors.black)
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: mode?(Colors.white):(Colors.black)
+                  )
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: mode?(Colors.white):(Colors.black)
+                  )
+                )
               ),
               validator: (value) => (value == null || value.trim().isEmpty)?"Required":null,
             ),
@@ -79,7 +128,11 @@ class _educationalinfoState extends State<educationalinfo> {
       actions: [
         TextButton(onPressed: (){
           Navigator.pop(context);
-        }, child: Text("Cancel")),
+        }, child: Text("Cancel",
+        style: TextStyle(
+          color: mode?(Colors.white):(Colors.black)
+        ),
+        )),
         TextButton(onPressed: (){
           if(_formkey.currentState!.validate()){
            setState(() {
@@ -90,9 +143,13 @@ class _educationalinfoState extends State<educationalinfo> {
               "grade":gradeController.text.trim(),
              });
            });
-          }
           Navigator.pop(context);
-        }, child: Text("Add"))
+
+}
+        }, child: Text("Add",
+        style: TextStyle(
+          color: mode?(Colors.white):(Colors.black)
+        )))
       ],
   ));
 }
@@ -180,7 +237,9 @@ class _educationalinfoState extends State<educationalinfo> {
           _showAddEducationDialogBox(context);
         },
         tooltip: "Add Education",
-        child: Icon(Icons.add),
+        child: Icon(Icons.add,
+        color: Colors.white,
+        ),
         ),
       ),
     );

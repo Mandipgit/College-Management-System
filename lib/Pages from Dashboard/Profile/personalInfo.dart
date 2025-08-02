@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profile/Profilepage.dart';
 import 'package:teachers/Theme/theme_provider.dart';
 
@@ -158,7 +159,7 @@ Widget _buildFormCard({
 return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
-    color: mode?(Colors.grey):(Colors.white),
+    color: mode?(primarygrey):(Colors.white),
     margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
@@ -219,7 +220,7 @@ Widget _buildEmailCard({
 return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
-    color: mode?(Colors.grey):(Colors.white),
+    color: mode?(primarygrey):(Colors.white),
     margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
@@ -283,7 +284,7 @@ Widget _buildPhoneCard({
 return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
-    color: mode?(Colors.grey):(Colors.white),
+    color: mode?(primarygrey):(Colors.white),
     margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
@@ -348,7 +349,7 @@ Widget _buildDateCard({
 return Padding(
   padding: const EdgeInsets.only(left:10,right: 10),
   child: Card(
-    color: mode?(Colors.grey):(Colors.white),
+    color: mode?(primarygrey):(Colors.white),
     margin: const EdgeInsets.symmetric(vertical: 5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
     elevation: 4,
