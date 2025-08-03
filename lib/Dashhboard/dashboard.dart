@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:teachers/Dashhboard/Bottomsheet.dart';
-import 'package:teachers/Pages%20from%20Dashboard/Chat/Teachers.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Notice%20Publish/publishNotice.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profile/Profilepage.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Settings/setting.dart';
