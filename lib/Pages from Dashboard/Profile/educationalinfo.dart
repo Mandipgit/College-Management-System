@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:teachers/Dashhboard/dashboard.dart';
 import 'package:teachers/Pages%20from%20Dashboard/Profile/Profilepage.dart';
 import 'package:teachers/Theme/theme_provider.dart';
-
 class educationalinfo extends StatefulWidget {
   const educationalinfo({super.key});
 
@@ -17,6 +16,8 @@ class _educationalinfoState extends State<educationalinfo> {
   final institutionController=TextEditingController();
   final yearController=TextEditingController();
   final gradeController=TextEditingController();
+final yearRegExp = RegExp(r'^(19[7-9]\d|20[0-1]\d|202[0-4])$');
+
   showDialog(context: context, builder:(context)=>AlertDialog(
     backgroundColor: mode?(primarygrey):(Colors.white),
     title: Text("Add Educational Information",
@@ -96,7 +97,8 @@ class _educationalinfoState extends State<educationalinfo> {
                   )
                 )
               ),
-              validator: (value) => (value == null || value.trim().isEmpty)?"Required":null,
+              validator: (value) => 
+              (value == null || value.trim().isEmpty)?"Required":null,
             ),
             const SizedBox(height: 10),
              TextFormField(
